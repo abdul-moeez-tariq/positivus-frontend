@@ -54,7 +54,7 @@ export default function Header() {
 
           <div className="flex items-center gap-4">
             <a
-              href="#contact"
+              href="/contact"
               className="hidden lg:flex items-center justify-center rounded-2xl border border-black px-8 py-4 transition hover:-translate-y-0.5 hover:bg-black hover:text-white"
             >
               Request a quote

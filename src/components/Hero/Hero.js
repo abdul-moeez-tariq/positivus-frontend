@@ -27,7 +27,7 @@ function Hero() {
             </p>
 
             <a
-              href="#contact"
+              href="/contact"
               className="mt-10 inline-flex items-center justify-center rounded-2xl bg-black px-8 py-4 text-lg font-medium text-white transition-all duration-300 hover:-translate-y-1 hover:bg-[#B9FF66] hover:text-black hover:shadow-xl"
             >
               Book a consultation

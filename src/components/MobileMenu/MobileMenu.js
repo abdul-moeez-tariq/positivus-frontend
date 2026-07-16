@@ -57,7 +57,7 @@ export default function MobileMenu({ isMenuOpen, setIsMenuOpen, navLinks }) {
         </nav>
         <div className="px-6">
           <a
-            href="#contact"
+            href="/contact"
             onClick={close}
             className="flex justify-center rounded-2xl bg-black px-6 py-4 text-white hover:bg-lime-300 hover:text-black transition"
           >
