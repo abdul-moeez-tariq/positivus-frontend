@@ -1,4 +1,5 @@
 import { HiArrowRight } from "react-icons/hi";
+import { Link } from "react-router-dom";
 
 function ContactHero() {
   return (
@@ -8,9 +9,21 @@ function ContactHero() {
 
       <div className="relative mx-auto flex max-w-7xl flex-col items-center gap-14 px-5 py-20 sm:px-6 lg:flex-row lg:justify-between lg:px-8 lg:py-28">
         <div className="max-w-2xl">
-          <span className="inline-flex rounded-full border border-[#B9FF66]/40 bg-[#B9FF66]/10 px-4 py-2 text-sm font-semibold text-[#B9FF66]">
+          {/* Breadcrumb */}
+
+          <div className="flex items-center gap-3 text-sm text-gray-300">
+            <Link to="/" className="transition hover:text-[#B9FF66]">
+              Home
+            </Link>
+
+            <span>/</span>
+
+            <span className="text-[#B9FF66]">Contact Us</span>
+          </div>
+
+          {/* <span className="inline-flex rounded-full border border-[#B9FF66]/40 bg-[#B9FF66]/10 px-4 py-2 text-sm font-semibold text-[#B9FF66]">
             Contact Us
-          </span>
+          </span> */}
 
           <h1 className="mt-6 text-5xl font-bold leading-tight text-white sm:text-6xl lg:text-7xl">
             Let's Build Something Amazing Together.

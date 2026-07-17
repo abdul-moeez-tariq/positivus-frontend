@@ -7,22 +7,22 @@ const quickLinks = [
   {
     id: 2,
     title: "Services",
-    href: "#services",
+    href: "/services",
   },
   {
     id: 3,
     title: "Case Studies",
-    href: "#use-cases",
+    href: "/use-cases",
   },
   {
     id: 4,
     title: "Our Process",
-    href: "#process",
+    href: "/process",
   },
   {
     id: 5,
     title: "Team",
-    href: "#team",
+    href: "/team",
   },
 ];
 

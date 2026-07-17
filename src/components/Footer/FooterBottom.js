@@ -38,7 +38,7 @@ function FooterBottom() {
         {/* Right */}
         <div className="flex items-center gap-5">
           <span className="text-sm text-white">
-            Designed & Developed by{" "}
+            Designed & Developed by
             <span className="font-semibold text-[#B9FF66]">Abdul Moeez</span>
           </span>
         </div>
