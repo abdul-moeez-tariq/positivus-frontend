@@ -1,8 +1,8 @@
 import React from "react";
 
-import Header from "../components/Header/Header";
-import Footer from "../components/Footer/Footer";
-import ScrollToTop from "../components/ScrollToTop/ScrollToTop";
+import Header from "../components/header/Header";
+import Footer from "../components/footer/Footer";
+import ScrollToTop from "../components/scrollToTop/ScrollToTop";
 
 import PrivacyHero from "../components/privacyPolicy/PrivacyHero";
 import PrivacyHighlights from "../components/privacyPolicy/PrivacyHighlights";

@@ -1,8 +1,8 @@
 import React from "react";
 
-import Header from "../components/Header/Header";
-import Footer from "../components/Footer/Footer";
-import ScrollToTop from "../components/ScrollToTop/ScrollToTop";
+import Header from "../components/header/Header";
+import Footer from "../components/footer/Footer";
+import ScrollToTop from "../components/scrollToTop/ScrollToTop";
 
 import UseCasesHero from "../components/useCases/UseCasesHero";
 import UseCasesGrid from "../components/useCases/UseCasesGrid";
@@ -10,7 +10,6 @@ import IndustrySolutions from "../components/useCases/IndustrySolutions";
 import SuccessStories from "../components/useCases/SuccessStories";
 import UseCasesProcess from "../components/useCases/UseCasesProcess";
 import UseCasesCTA from "../components/useCases/UseCasesCTA";
-
 
 function UseCasesPage() {
   return (
@@ -20,7 +19,6 @@ function UseCasesPage() {
       <Header />
 
       <main>
-
         <UseCasesHero />
 
         <UseCasesGrid />
@@ -32,13 +30,11 @@ function UseCasesPage() {
         <UseCasesProcess />
 
         <UseCasesCTA />
-
       </main>
 
       <Footer />
     </>
   );
 }
-
 
 export default UseCasesPage;

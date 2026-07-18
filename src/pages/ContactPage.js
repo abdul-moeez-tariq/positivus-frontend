@@ -1,11 +1,12 @@
-import Header from "../components/Header/Header";
-import Footer from "../components/Footer/Footer";
+import Header from "../components/header/Header";
+import Footer from "../components/footer/Footer";
 
 import ContactHero from "../components/contact/ContactHero";
 import ContactInfo from "../components/contact/ContactInfo";
 import ContactForm from "../components/contact/ContactForm";
-import OfficeMap from "../components/contact/OfficeMap";
-import FAQ from "../components/contact/FAQ";
+import OfficeLocations from "../components/contact/OfficeLocations";
+import WhyWorkWithUs from "../components/contact/WhyWorkWithUs";
+import ContactFAQ from "../components/contact/ContactFAQ";
 import ContactCTA from "../components/contact/ContactCTA";
 
 function ContactPage() {
@@ -13,23 +14,19 @@ function ContactPage() {
     <>
       <Header />
 
-      <main className="overflow-hidden bg-white">
-        {/* Hero */}
+      <main>
         <ContactHero />
 
-        {/* Contact Information */}
         <ContactInfo />
 
-        {/* Contact Form */}
         <ContactForm />
 
-        {/* Google Map */}
-        <OfficeMap />
+        <OfficeLocations />
 
-        {/* Frequently Asked Questions */}
-        <FAQ />
+        <WhyWorkWithUs />
 
-        {/* Bottom CTA */}
+        <ContactFAQ />
+
         <ContactCTA />
       </main>
 

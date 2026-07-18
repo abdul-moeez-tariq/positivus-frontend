@@ -5,7 +5,7 @@ import logo from "../../assets/images/logos/logo.png";
 
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
 
-import MobileMenu from "../MobileMenu/MobileMenu";
+import MobileMenu from "../mobileMenu/MobileMenu";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

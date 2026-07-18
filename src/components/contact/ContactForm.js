@@ -1,266 +1,112 @@
 import { useState } from "react";
-import {
-  HiOutlineUser,
-  HiOutlineEnvelope,
-  HiOutlinePhone,
-  HiOutlineBuildingOffice2,
-  HiOutlineCloudArrowUp,
-} from "react-icons/hi2";
+import { HiPaperAirplane, HiCheckCircle } from "react-icons/hi2";
 
-function ContactForm() {
-  const [formData, setFormData] = useState({
-    fullName: "",
-    email: "",
-    phone: "",
-    company: "",
-    service: "",
-    budget: "",
-    message: "",
-    agree: false,
-    file: null,
-  });
-
-  const services = [
-    "Website Development",
-    "React.js Development",
-    "Next.js Development",
-    "React Native App",
-    "UI/UX Design",
-    "API Development",
-    "SEO",
-    "Maintenance",
-  ];
-
-  const budgets = [
-    "$500 - $1,000",
-    "$1,000 - $3,000",
-    "$3,000 - $5,000",
-    "$5,000+",
-  ];
-
-  const handleChange = (e) => {
-    const { name, value, type, checked, files } = e.target;
-
-    setFormData((prev) => ({
-      ...prev,
-      [name]:
-        type === "checkbox" ? checked : type === "file" ? files[0] : value,
-    }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(formData);
-  };
-
+export default function ContactForm() {
+  const [service, setService] = useState("Web Development");
   return (
-    <section id="contact-form" className="bg-[#F5F7FA] py-20 sm:py-24 lg:py-28">
-      <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-        <div className="overflow-hidden rounded-[36px] bg-white shadow-2xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2">
-            {/* Left Side */}
-
-            <div className="bg-[#191A23] p-8 sm:p-10 lg:p-14">
-              <span className="rounded-full bg-[#B9FF66] px-4 py-2 text-sm font-semibold text-black">
-                Let's Talk
-              </span>
-
-              <h2 className="mt-8 text-4xl font-bold leading-tight text-white">
-                Ready to build your next digital product?
-              </h2>
-
-              <p className="mt-6 text-lg leading-8 text-gray-300">
-                Fill out the form and our Full Stack Development team will
-                contact you within 24 hours.
-              </p>
-
-              <div className="mt-12 space-y-8">
-                <div>
-                  <h3 className="text-xl font-semibold text-[#B9FF66]">
-                    Why choose us?
-                  </h3>
-
-                  <ul className="mt-5 space-y-4 text-gray-300">
-                    <li>✔ Modern Web Applications</li>
-
-                    <li>✔ Responsive UI/UX</li>
-
-                    <li>✔ Fast Delivery</li>
-
-                    <li>✔ Scalable Architecture</li>
-
-                    <li>✔ 24/7 Technical Support</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Side */}
-
-            <div className="p-8 sm:p-10 lg:p-14">
-              <form
-                onSubmit={handleSubmit}
-                className="grid grid-cols-1 gap-6 md:grid-cols-2"
-              >
-                {/* Name */}
-
-                <div className="relative">
-                  <HiOutlineUser className="absolute left-5 top-5 text-xl text-gray-400" />
-
-                  <input
-                    type="text"
-                    name="fullName"
-                    value={formData.fullName}
-                    onChange={handleChange}
-                    placeholder="Full Name"
-                    className="w-full rounded-2xl border border-gray-300 py-4 pl-14 pr-5 outline-none transition focus:border-[#B9FF66]"
-                  />
-                </div>
-
-                {/* Email */}
-
-                <div className="relative">
-                  <HiOutlineEnvelope className="absolute left-5 top-5 text-xl text-gray-400" />
-
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="Email Address"
-                    className="w-full rounded-2xl border border-gray-300 py-4 pl-14 pr-5 outline-none transition focus:border-[#B9FF66]"
-                  />
-                </div>
-
-                {/* Phone */}
-
-                <div className="relative">
-                  <HiOutlinePhone className="absolute left-5 top-5 text-xl text-gray-400" />
-
-                  <input
-                    type="text"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    placeholder="Phone Number"
-                    className="w-full rounded-2xl border border-gray-300 py-4 pl-14 pr-5 outline-none transition focus:border-[#B9FF66]"
-                  />
-                </div>
-
-                {/* Company */}
-
-                <div className="relative">
-                  <HiOutlineBuildingOffice2 className="absolute left-5 top-5 text-xl text-gray-400" />
-
-                  <input
-                    type="text"
-                    name="company"
-                    value={formData.company}
-                    onChange={handleChange}
-                    placeholder="Company Name"
-                    className="w-full rounded-2xl border border-gray-300 py-4 pl-14 pr-5 outline-none transition focus:border-[#B9FF66]"
-                  />
-                </div>
-                
-                {/* Service */}
-
-                <select
-                  name="service"
-                  value={formData.service}
-                  onChange={handleChange}
-                  className="w-full rounded-2xl border border-gray-300 px-5 py-4 outline-none transition focus:border-[#B9FF66]"
-                >
-                  <option value="">Select Service</option>
-
-                  {services.map((service) => (
-                    <option key={service} value={service}>
-                      {service}
-                    </option>
-                  ))}
-                </select>
-
-                {/* Budget */}
-
-                <select
-                  name="budget"
-                  value={formData.budget}
-                  onChange={handleChange}
-                  className="w-full rounded-2xl border border-gray-300 px-5 py-4 outline-none transition focus:border-[#B9FF66]"
-                >
-                  <option value="">Project Budget</option>
-
-                  {budgets.map((budget) => (
-                    <option key={budget} value={budget}>
-                      {budget}
-                    </option>
-                  ))}
-                </select>
-
-                {/* Message */}
-
-                <textarea
-                  rows="6"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Tell us about your project..."
-                  className="col-span-1 w-full resize-none rounded-2xl border border-gray-300 px-5 py-4 outline-none transition focus:border-[#B9FF66] md:col-span-2"
-                ></textarea>
-
-                {/* Upload */}
-
-                <label className="col-span-1 flex cursor-pointer items-center justify-center gap-4 rounded-2xl border-2 border-dashed border-gray-300 px-6 py-6 transition hover:border-[#B9FF66] md:col-span-2">
-                  <HiOutlineCloudArrowUp className="text-3xl text-[#B9FF66]" />
-
-                  <div>
-                    <p className="font-semibold text-[#191A23]">
-                      Upload Project Brief
-                    </p>
-
-                    <p className="text-sm text-gray-500">
-                      PDF, DOCX, ZIP (Max 10MB)
-                    </p>
-                  </div>
-
-                  <input
-                    type="file"
-                    name="file"
-                    onChange={handleChange}
-                    className="hidden"
-                  />
-                </label>
-
-                {formData.file && (
-                  <p className="text-sm font-medium text-green-600 md:col-span-2">
-                    Selected File: {formData.file.name}
-                  </p>
-                )}
-
-                {/* Checkbox */}
-
-                <label className="col-span-1 flex items-start gap-3 md:col-span-2">
-                  <input
-                    type="checkbox"
-                    name="agree"
-                    checked={formData.agree}
-                    onChange={handleChange}
-                    className="mt-1 h-5 w-5 accent-[#B9FF66]"
-                  />
-
-                  <span className="text-sm leading-7 text-gray-600">
-                    I agree to the Privacy Policy and Terms & Conditions.
-                  </span>
-                </label>
-
-                {/* Button */}
-
+    <section id="form" className="bg-white py-20 sm:py-24 lg:py-28">
+      <div className="mx-auto grid max-w-7xl gap-10 px-5 lg:grid-cols-[1.2fr_.8fr]">
+        <form className="rounded-[32px] border border-gray-200 bg-white p-8 shadow-xl">
+          <span className="inline-flex rounded-full bg-[#B9FF66] px-5 py-2 text-sm font-semibold">
+            Start Your Project
+          </span>
+          <h2 className="mt-6 text-4xl font-bold text-[#191A23]">
+            Tell Us About Your Project
+          </h2>
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
+            <input className="rounded-2xl border p-4" placeholder="Full Name" />
+            <input
+              className="rounded-2xl border p-4"
+              placeholder="Email Address"
+            />
+            <input
+              className="rounded-2xl border p-4"
+              placeholder="Phone Number"
+            />
+            <input
+              className="rounded-2xl border p-4"
+              placeholder="Company Name"
+            />
+          </div>
+          <h3 className="mt-8 text-xl font-bold">Select Service</h3>
+          <div className="mt-4 grid gap-4 sm:grid-cols-2">
+            {["Web Development", "Mobile App", "UI/UX Design", "SEO"].map(
+              (s) => (
                 <button
-                  type="submit"
-                  className="col-span-1 rounded-2xl bg-[#191A23] px-8 py-5 text-lg font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:bg-[#B9FF66] hover:text-black hover:shadow-2xl md:col-span-2"
+                  type="button"
+                  key={s}
+                  onClick={() => setService(s)}
+                  className={`rounded-2xl border p-4 text-left transition ${service === s ? "border-[#B9FF66] bg-[#B9FF66]" : "hover:border-[#B9FF66]"}`}
                 >
-                  Send Message
+                  {s}
                 </button>
-              </form>
+              ),
+            )}
+          </div>
+          <div className="mt-6 grid gap-6 md:grid-cols-2">
+            <select className="rounded-2xl border p-4">
+              <option>Budget</option>
+              <option>$1k-$5k</option>
+              <option>$5k-$10k</option>
+            </select>
+            <select className="rounded-2xl border p-4">
+              <option>Timeline</option>
+              <option>2 Weeks</option>
+              <option>1 Month</option>
+            </select>
+          </div>
+          <textarea
+            rows="6"
+            className="mt-6 w-full rounded-2xl border p-4"
+            placeholder="Project Details"
+          />
+          <label className="mt-6 flex items-center gap-3">
+            <input type="checkbox" />
+            <span>I agree to the Privacy Policy.</span>
+          </label>
+          <button className="mt-8 flex w-full items-center justify-center gap-2 rounded-2xl bg-[#191A23] px-8 py-5 font-semibold text-white transition hover:bg-[#B9FF66] hover:text-black">
+            <HiPaperAirplane />
+            Send Message
+          </button>
+        </form>
+        <div className="rounded-[32px] bg-[#191A23] p-8 text-white shadow-2xl">
+          <h3 className="text-3xl font-bold">Why Work With Us?</h3>
+          <p className="mt-4 leading-8 text-gray-300">
+            We deliver modern, scalable and premium digital solutions for
+            startups and enterprises.
+          </p>
+          <div className="mt-8 space-y-5">
+            {[
+              "Free Consultation",
+              "Transparent Pricing",
+              "Dedicated Team",
+              "Long-Term Support",
+              "Fast Delivery",
+            ].map((i) => (
+              <div key={i} className="flex items-center gap-3">
+                <HiCheckCircle className="text-[#B9FF66]" />
+                <span>{i}</span>
+              </div>
+            ))}
+          </div>
+          <div className="mt-10 rounded-3xl bg-white p-6 text-[#191A23]">
+            <div className="grid grid-cols-2 gap-4 text-center">
+              <div>
+                <h4 className="text-4xl font-bold">150+</h4>
+                <p>Projects</p>
+              </div>
+              <div>
+                <h4 className="text-4xl font-bold">40+</h4>
+                <p>Clients</p>
+              </div>
+              <div>
+                <h4 className="text-4xl font-bold">98%</h4>
+                <p>Satisfaction</p>
+              </div>
+              <div>
+                <h4 className="text-4xl font-bold">24h</h4>
+                <p>Response</p>
+              </div>
             </div>
           </div>
         </div>
@@ -268,5 +114,3 @@ function ContactForm() {
     </section>
   );
 }
-
-export default ContactForm;

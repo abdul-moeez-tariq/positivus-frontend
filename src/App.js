@@ -29,7 +29,9 @@ import "./App.css";
 
 import { Routes, Route } from "react-router-dom";
 
-import Header from "./components/Header/Header";
+import Header from "./components/header/Header";
+
+// --- nav-items pages ---
 import AboutPage from "./pages/AboutPage";
 import ServicesPage from "./pages/ServicesPage";
 import UseCasesPage from "./pages/UseCasesPage";
@@ -37,24 +39,24 @@ import PricingPage from "./pages/PricingPage";
 import BlogPage from "./pages/BlogPage";
 import ContactPage from "./pages/ContactPage";
 
-import Hero from "./components/Hero/Hero";
-import Companies from "./components/CompaniesLogos/Companies";
+import Hero from "./components/hero/Hero";
+import Companies from "./components/companiesLogos/Companies";
 import Services from "./components/services/Services";
-import CTA from "./components/CTA/CTA";
-import CaseStudies from "./components/CaseStudies/CaseStudies";
+import CTA from "./components/cta/CTA";
+import CaseStudies from "./components/caseStudies/CaseStudies";
 import WorkingProcess from "./components/process/WorkingProcess";
 import Team from "./components/team/Team";
 
 import TeamPage from "./pages/TeamPage";
-import Footer from "./components/Footer/Footer";
+import Footer from "./components/footer/Footer";
 
-// Footer Bottom Pages
+// --- Footer Bottom Pages ---
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import TermsConditionsPage from "./pages/TermsConditionsPage";
 import CookiePolicyPage from "./pages/CookiePolicyPage";
 
-import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
-import ScrollToTopOnRouteChange from "./components/ScrollToTop/ScrollToTopOnRouteChange";
+import ScrollToTop from "./components/scrollToTop/ScrollToTop";
+import ScrollToTopOnRouteChange from "./components/scrollToTop/ScrollToTopOnRouteChange";
 
 function Home() {
   return (

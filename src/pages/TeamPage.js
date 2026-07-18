@@ -41,9 +41,9 @@
 
 // export default TeamPage;
 
-import Header from "../components/Header/Header";
-import Footer from "../components/Footer/Footer";
-import ScrollToTop from "../components/ScrollToTop/ScrollToTop";
+import Header from "../components/header/Header";
+import Footer from "../components/footer/Footer";
+import ScrollToTop from "../components/scrollToTop/ScrollToTop";
 
 import TeamHero from "../components/teamPage/TeamHero";
 import TeamStats from "../components/teamPage/TeamStats";
