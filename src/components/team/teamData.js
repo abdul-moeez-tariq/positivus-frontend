@@ -11,9 +11,9 @@ const teamData = [
     name: "Abdul Moeez",
     position: "Founder & Full Stack Developer",
     image: member1,
-    linkedin: "https://linkedin.com/",
+    linkedin: "#",
     description:
-      "Specialized in React.js, Node.js, Express.js, MongoDB, and REST APIs with experience in building scalable, responsive, and high-performance web applications.",
+      "Leading IN2NEXT with expertise in building scalable web applications, modern architectures, and innovative digital solutions.",
   },
 
   {
@@ -21,9 +21,9 @@ const teamData = [
     name: "Muhammad Ali",
     position: "Frontend Developer",
     image: member2,
-    linkedin: "https://linkedin.com/",
+    linkedin: "#",
     description:
-      "Expert in React.js, JavaScript, Tailwind CSS, and modern UI development with a strong focus on responsive design and exceptional user experience.",
+      "Creates responsive and interactive interfaces using modern frontend technologies with a strong focus on user experience.",
   },
 
   {
@@ -31,9 +31,9 @@ const teamData = [
     name: "Ahmed Raza",
     position: "Backend Developer",
     image: member3,
-    linkedin: "https://linkedin.com/",
+    linkedin: "#",
     description:
-      "Experienced in Node.js, Express.js, MongoDB, authentication systems, RESTful APIs, and scalable backend architecture.",
+      "Builds secure backend systems, APIs, and scalable server architectures that power reliable applications.",
   },
 
   {
@@ -41,9 +41,9 @@ const teamData = [
     name: "Usman Khan",
     position: "UI/UX Designer",
     image: member4,
-    linkedin: "https://linkedin.com/",
+    linkedin: "#",
     description:
-      "Creates clean, modern, and user-focused interfaces with attention to accessibility, consistency, and interactive design principles.",
+      "Designs intuitive digital experiences that combine creativity, usability, and modern design principles.",
   },
 
   {
@@ -51,9 +51,9 @@ const teamData = [
     name: "Hassan Ahmed",
     position: "Database Engineer",
     image: member5,
-    linkedin: "https://linkedin.com/",
+    linkedin: "#",
     description:
-      "Designs secure and optimized database solutions using MongoDB, MySQL, and Firebase with a focus on performance and data integrity.",
+      "Develops optimized database solutions ensuring performance, security, and efficient data management.",
   },
 
   {
@@ -61,9 +61,9 @@ const teamData = [
     name: "Fatima Noor",
     position: "QA Engineer",
     image: member6,
-    linkedin: "https://linkedin.com/",
+    linkedin: "#",
     description:
-      "Ensures application quality through functional testing, responsive testing, bug tracking, performance validation, and user acceptance testing.",
+      "Ensures product quality through detailed testing, performance validation, and continuous improvement.",
   },
 ];
 

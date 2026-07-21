@@ -3,42 +3,42 @@ const processData = [
     id: 1,
     title: "Requirement Analysis",
     description:
-      "We begin by understanding your business goals, target audience, and project requirements. This helps us create a clear roadmap and choose the right technologies for your web application.",
+      "We analyze your business goals, audience, and technical requirements to create a clear project roadmap with the right strategy and technology stack.",
   },
 
   {
     id: 2,
     title: "UI/UX Design",
     description:
-      "Modern, responsive, and user-friendly interfaces are designed to provide an exceptional user experience across all devices while maintaining a clean and professional appearance.",
+      "Our designers create modern, responsive, and user-focused interfaces that deliver smooth experiences across all devices.",
   },
 
   {
     id: 3,
     title: "Frontend Development",
     description:
-      "Using React.js, JavaScript, Tailwind CSS, and modern frontend practices, we build fast, responsive, and interactive user interfaces with clean and maintainable code.",
+      "We build fast and interactive frontend experiences using modern frameworks with clean, scalable, and maintainable code.",
   },
 
   {
     id: 4,
     title: "Backend Development",
     description:
-      "We develop secure and scalable backend systems using Node.js, Express.js, REST APIs, authentication, authorization, and efficient server-side architecture.",
+      "We develop secure backend systems with APIs, authentication, database architecture, and scalable server solutions.",
   },
 
   {
     id: 5,
-    title: "Database & API Integration",
+    title: "Database & Integration",
     description:
-      "Applications are connected with MongoDB, MySQL, Firebase, and third-party APIs to ensure reliable data management, seamless integrations, and optimal performance.",
+      "We integrate powerful databases and third-party services to ensure reliable performance and seamless functionality.",
   },
 
   {
     id: 6,
     title: "Testing & Deployment",
     description:
-      "Before launch, every application is thoroughly tested for performance, security, and responsiveness. Finally, the project is deployed on platforms like Vercel, Netlify, Render, or other cloud services with ongoing maintenance support.",
+      "We test, optimize, deploy, and maintain applications to ensure security, performance, and long-term reliability.",
   },
 ];
 

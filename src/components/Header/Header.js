@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 
-import logo from "../../assets/images/logos/logo.png";
-
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
+import { IoClose } from "react-icons/io5";
+
+import logo from "../../assets/images/logos/in2next-logo.png";
 
 import MobileMenu from "../mobileMenu/MobileMenu";
 
@@ -67,17 +68,12 @@ export default function Header() {
       >
         <div className="mx-auto flex h-24 max-w-7xl items-center justify-between px-5 sm:px-6 lg:px-8">
           {/* Logo */}
-
-          <Link to="/" className="group flex items-center gap-3">
+          <Link to="/" className="flex items-center">
             <img
               src={logo}
-              alt="Positivus"
-              className="h-10 w-auto transition duration-300 group-hover:rotate-6"
+              alt="IN2NEXT Solutions"
+              className="h-16 lg:h-20 w-auto object-contain"
             />
-
-            <h1 className="text-3xl font-bold tracking-tight text-black">
-              Positivus
-            </h1>
           </Link>
 
           {/* Desktop Navigation */}
@@ -93,8 +89,8 @@ export default function Header() {
 
                       ${
                         isActive
-                          ? "bg-[#B9FF66] text-black shadow-xl shadow-[#B9FF66]/40"
-                          : "text-gray-600 hover:bg-gray-100 hover:text-black"
+                          ? "bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 text-white shadow-xl shadow-blue-500/30"
+                          : "text-gray-600 hover:bg-blue-50 hover:text-blue-700"
                       }
 
                       `
@@ -112,17 +108,20 @@ export default function Header() {
           <div className="flex items-center gap-4">
             <Link
               to="/contact"
-              className="hidden items-center justify-center rounded-2xl border border-black px-8 py-4 text-sm font-semibold text-black transition-all duration-300 hover:-translate-y-1 hover:bg-black hover:text-white lg:flex"
+              className="hidden items-center justify-center rounded-2xl bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-blue-500/25 transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-xl hover:shadow-purple-500/30 lg:flex"
             >
               Request a Quote
             </Link>
 
             <button
-              onClick={() => setIsMenuOpen(true)}
-              className="flex h-12 w-12 items-center justify-center rounded-xl border border-gray-200 text-3xl transition-all duration-300 hover:bg-[#B9FF66] lg:hidden"
-              aria-label="Open Menu"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="relative flex h-12 w-12 items-center justify-center rounded-xl border border-gray-200 transition-all duration-300 hover:bg-gradient-to-r hover:from-cyan-500 hover:via-blue-600 hover:to-purple-600 hover:text-white lg:hidden"
             >
-              <HiOutlineMenuAlt3 />
+              {isMenuOpen ? (
+                <IoClose className="text-3xl transition-all duration-300" />
+              ) : (
+                <HiOutlineMenuAlt3 className="text-3xl transition-all duration-300" />
+              )}
             </button>
           </div>
         </div>

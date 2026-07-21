@@ -2,24 +2,34 @@ import { IoArrowForward } from "react-icons/io5";
 
 function CaseStudyCard({ study }) {
   return (
-    <article className="group flex h-full flex-col justify-between p-8 transition-all duration-300 hover:bg-neutral-800 sm:p-10">
-      {/* Content */}
-      <div>
-        <h3 className="mb-4 text-2xl font-semibold text-white">
-          {study.title}
-        </h3>
+    <article className="group relative flex h-full flex-col justify-between overflow-hidden rounded-3xl border border-gray-200 bg-white p-8 shadow-sm transition-all duration-500 hover:-translate-y-3 hover:border-blue-200 hover:shadow-2xl sm:p-10">
+      {/* Hover Glow */}
 
-        <p className="text-base leading-7 text-gray-300">{study.description}</p>
+      <div className="absolute -right-20 -top-20 h-48 w-48 rounded-full bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 opacity-0 blur-3xl transition-all duration-500 group-hover:opacity-20" />
+
+      {/* Number */}
+
+      <div className="relative">
+        <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 text-lg font-bold text-white">
+          0{study.id}
+        </span>
+
+        <h3 className="mt-6 text-2xl font-bold text-gray-900">{study.title}</h3>
+
+        <p className="mt-5 text-base leading-8 text-gray-600">
+          {study.description}
+        </p>
       </div>
 
-      {/* Learn More */}
+      {/* Link */}
+
       <a
         href={study.link}
-        className="mt-8 inline-flex w-fit items-center gap-3 text-lg font-medium text-[#B9FF66] transition-all duration-300 hover:gap-5"
+        className="relative mt-8 inline-flex w-fit items-center gap-4 text-lg font-semibold text-gray-800 transition-all duration-300 group-hover:text-blue-600"
       >
-        <span>Learn More</span>
+        <span>View Project</span>
 
-        <span className="flex h-10 w-10 items-center justify-center rounded-full border border-[#B9FF66] transition-all duration-300 group-hover:rotate-45 group-hover:bg-[#B9FF66] group-hover:text-black">
+        <span className="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 text-white transition-transform duration-300 group-hover:rotate-45">
           <IoArrowForward />
         </span>
       </a>
