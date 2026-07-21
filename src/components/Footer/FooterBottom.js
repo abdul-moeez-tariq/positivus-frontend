@@ -1,49 +1,90 @@
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+
 function FooterBottom() {
+  const policyLinks = [
+    {
+      id: 1,
+      title: "Privacy Policy",
+      href: "/privacy-policy",
+    },
+
+    {
+      id: 2,
+      title: "Terms & Conditions",
+      href: "/terms-and-conditions",
+    },
+
+    {
+      id: 3,
+      title: "Cookie Policy",
+      href: "/cookie-policy",
+    },
+  ];
+
   return (
-    <section className="py-10">
+    <motion.section
+      initial={{
+        opacity: 0,
+        y: 30,
+      }}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+      }}
+      viewport={{
+        once: true,
+      }}
+      transition={{
+        duration: 0.7,
+      }}
+      className="py-10"
+    >
       {/* Divider */}
-      <div className="h-px w-full bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
 
-      <div className="mt-8 flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
-        {/* Left */}
-        <div className="flex flex-col gap-4">
-          <p className="text-sm leading-7 text-white">
-            © {new Date().getFullYear()} Positivus. All rights reserved.
-          </p>
+      <div className="h-px w-full bg-gradient-to-r from-transparent via-gray-300 to-transparent" />
 
-          <div className="flex flex-wrap items-center gap-6">
-            <a
-              href="/privacy-policy"
-              className="text-sm text-[#B9FF66] transition-all duration-300 hover:text-[#B9FF66]"
-            >
-              Privacy Policy
-            </a>
+      <div className="flex flex-col items-center justify-center gap-6 pt-8 text-center">
+        {/* Copyright */}
 
-            <a
-              href="/terms-and-conditions"
-              className="text-sm text-[#B9FF66] transition-all duration-300 hover:text-[#B9FF66]"
-            >
-              Terms & Conditions
-            </a>
-
-            <a
-              href="/cookies"
-              className="text-sm text-[#B9FF66] transition-all duration-300 hover:text-[#B9FF66]"
-            >
-              Cookie Policy
-            </a>
-          </div>
-        </div>
-
-        {/* Right */}
-        <div className="flex items-center gap-5">
-          <span className="text-sm text-white">
-            Designed & Developed by
-            <span className="font-semibold text-[#B9FF66]">Abdul Moeez</span>
+        <p className="text-sm text-gray-600 sm:text-base">
+          © {new Date().getFullYear()}
+          <span className="font-semibold  bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 bg-clip-text text-transparent">
+            {" "}
+            IN2NEXT
           </span>
+          . All rights reserved.
+        </p>
+
+        {/* Policies */}
+
+        <div className="flex flex-wrap items-center justify-center gap-5">
+          {policyLinks.map((item, index) => (
+            <div key={item.id} className="flex items-center gap-5">
+              <Link
+                to={item.href}
+                className="text-sm font-medium text-gray-500 transition-all duration-300 hover:text-blue-600"
+              >
+                {item.title}
+              </Link>
+
+              {index !== policyLinks.length - 1 && (
+                <span className="h-1 w-1 rounded-full bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600" />
+              )}
+            </div>
+          ))}
         </div>
+
+        {/* Developer Credit */}
+
+        <p className="text-sm text-gray-500">
+          Designed & Developed by
+          <span className="font-semibold bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 bg-clip-text text-transparent">{" "}
+            Abdul Moeez
+          </span>
+        </p>
       </div>
-    </section>
+    </motion.section>
   );
 }
 

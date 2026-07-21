@@ -9,55 +9,49 @@ const servicesData = [
   {
     id: 1,
     title: "Frontend Development",
+    description:
+      "We build fast, responsive and modern interfaces using latest frontend technologies.",
     image: frontend,
-    bg: "bg-white",
-    titleBg: "bg-[#B9FF66]",
-    textColor: "text-black",
   },
 
   {
     id: 2,
     title: "Backend Development",
+    description:
+      "Secure and scalable backend systems designed for high performance.",
     image: backend,
-    bg: "bg-[#B9FF66]",
-    titleBg: "bg-white",
-    textColor: "text-black",
   },
 
   {
     id: 3,
     title: "Full Stack Development",
+    description:
+      "Complete web solutions from frontend experiences to powerful backend architecture.",
     image: fullstack,
-    bg: "bg-neutral-900",
-    titleBg: "bg-[#B9FF66]",
-    textColor: "text-white",
   },
 
   {
     id: 4,
-    title: "Database Design",
+    title: "Database Solutions",
+    description:
+      "Efficient database architecture for reliable and scalable applications.",
     image: database,
-    bg: "bg-white",
-    titleBg: "bg-[#B9FF66]",
-    textColor: "text-black",
   },
 
   {
     id: 5,
     title: "API Integration",
+    description:
+      "Seamless API development and third-party integrations for your products.",
     image: api,
-    bg: "bg-[#B9FF66]",
-    titleBg: "bg-white",
-    textColor: "text-black",
   },
 
   {
     id: 6,
     title: "Deployment & Maintenance",
+    description:
+      "Reliable deployment, monitoring and continuous improvements for your applications.",
     image: deployment,
-    bg: "bg-neutral-900",
-    titleBg: "bg-[#B9FF66]",
-    textColor: "text-white",
   },
 ];
 
