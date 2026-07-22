@@ -1,75 +1,114 @@
-import React from "react";
 import { motion } from "framer-motion";
 
 import {
-  HiOutlineTrophy,
-  HiOutlineUsers,
-  HiOutlineBriefcase,
-  HiOutlineGlobeAlt,
-  HiOutlineStar,
+  HiTrophy,
+  HiUsers,
+  HiGlobeAlt,
+  HiStar,
+  HiSparkles,
 } from "react-icons/hi2";
 
 const achievements = [
   {
-    icon: HiOutlineBriefcase,
-    number: "150+",
-    title: "Projects Completed",
+    icon: HiTrophy,
+    number: "250+",
+    title: "Projects Delivered",
+    description:
+      "Successfully delivered scalable digital products for startups and businesses.",
   },
+
   {
-    icon: HiOutlineUsers,
-    number: "40+",
+    icon: HiUsers,
+    number: "120+",
     title: "Happy Clients",
+    description:
+      "Trusted by businesses through reliable solutions and long-term partnerships.",
   },
+
   {
-    icon: HiOutlineGlobeAlt,
-    number: "8+",
+    icon: HiGlobeAlt,
+    number: "15+",
     title: "Countries Served",
+    description: "Helping global businesses build modern digital experiences.",
   },
+
   {
-    icon: HiOutlineStar,
-    number: "98%",
+    icon: HiStar,
+    number: "99%",
     title: "Client Satisfaction",
-    highlight: true,
+    description:
+      "Focused on quality, performance and exceptional user experience.",
   },
 ];
 
 const journey = [
   {
     year: "2021",
-    title: "Company Founded",
+    title: "The Beginning",
     description:
-      "Started our journey with a vision to build modern websites and digital experiences.",
+      "IN2NEXT started with a vision to help businesses grow through modern technology solutions.",
   },
+
   {
     year: "2022",
-    title: "50+ Successful Projects",
+    title: "Expanding Capabilities",
     description:
-      "Expanded our services by delivering scalable and high-performance solutions.",
+      "Expanded expertise into full-stack development, UI/UX design and cloud-based solutions.",
   },
+
   {
-    year: "2023",
-    title: "International Expansion",
+    year: "2024",
+    title: "Global Growth",
     description:
-      "Started working with businesses across different industries worldwide.",
+      "Delivered advanced digital products for clients across different industries worldwide.",
   },
+
   {
     year: "Today",
-    title: "Trusted Digital Partner",
+    title: "Innovation First",
     description:
-      "Helping startups and enterprises build premium digital products.",
+      "Creating AI-powered, scalable and future-ready digital products.",
   },
 ];
 
 function Achievements() {
   return (
-    <section className="bg-gray-50 px-6 py-20 sm:px-10 lg:px-16">
-      <div className="mx-auto max-w-7xl">
+    <section className="relative overflow-hidden bg-white px-5 py-20 sm:px-6 lg:px-8 lg:py-28">
+      {/* Background Glow */}
+
+      <motion.div
+        animate={{
+          x: [0, 70, 0],
+          y: [0, -40, 0],
+        }}
+        transition={{
+          duration: 14,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute -left-40 top-20 h-96 w-96 rounded-full bg-cyan-400/20 blur-3xl"
+      />
+
+      <motion.div
+        animate={{
+          x: [0, -70, 0],
+          y: [0, 50, 0],
+        }}
+        transition={{
+          duration: 16,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute -right-40 bottom-20 h-96 w-96 rounded-full bg-purple-500/20 blur-3xl"
+      />
+
+      <div className="relative mx-auto max-w-7xl">
         {/* Heading */}
 
         <motion.div
           initial={{
             opacity: 0,
-            y: 30,
+            y: 40,
           }}
           whileInView={{
             opacity: 1,
@@ -79,34 +118,37 @@ function Achievements() {
             once: true,
           }}
           transition={{
-            duration: 0.6,
+            duration: 0.7,
           }}
-          className="mx-auto max-w-3xl text-center"
+          className="mx-auto flex max-w-3xl flex-col items-center text-center"
         >
-          <span className="rounded-full bg-[#B9FF66] px-5 py-2 text-sm font-semibold text-black">
+          <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 px-5 py-2 text-sm font-semibold text-white shadow-lg">
+            <HiSparkles className="text-lg" />
             Our Achievements
           </span>
 
-          <h2 className="mt-6 text-3xl font-bold text-black sm:text-4xl lg:text-5xl">
+          <h2 className="mt-8 text-4xl font-black leading-tight text-gray-900 sm:text-5xl lg:text-6xl">
             Milestones That
-            <br />
-            Define Our Journey
+            <span className="block bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 bg-clip-text text-transparent">
+              Define Our Success
+            </span>
           </h2>
 
-          <p className="mt-5 text-lg leading-relaxed text-gray-600">
-            Every achievement represents our commitment to innovation, quality
-            and creating impactful digital experiences.
+          <p className="mt-6 text-base leading-8 text-gray-600 sm:text-lg">
+            Our achievements represent years of dedication, innovation and
+            commitment towards building reliable digital solutions for our
+            clients.
           </p>
         </motion.div>
 
-        {/* Stats Cards */}
+        {/* Achievement Cards */}
 
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-16 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
           {achievements.map((item, index) => {
             const Icon = item.icon;
 
             return (
-              <motion.div
+              <motion.article
                 key={item.title}
                 initial={{
                   opacity: 0,
@@ -123,89 +165,130 @@ function Achievements() {
                   duration: 0.5,
                   delay: index * 0.1,
                 }}
-                className={`rounded-3xl p-8 text-center shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl ${
-                  item.highlight ? "bg-[#B9FF66]" : "bg-white"
-                }`}
+                whileHover={{
+                  y: -10,
+                }}
+                className="group relative overflow-hidden rounded-[32px] border border-gray-200 bg-white p-7 shadow-sm transition duration-500 hover:border-cyan-300 hover:shadow-2xl"
               >
-                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-black">
-                  <Icon className="text-3xl text-[#B9FF66]" />
+                {/* Hover Glow */}
+
+                <div className="absolute -right-16 -top-16 h-40 w-40 rounded-full bg-cyan-400/20 blur-3xl opacity-0 transition duration-500 group-hover:opacity-100" />
+
+                <div className="relative">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 text-white shadow-lg">
+                    <Icon className="text-3xl" />
+                  </div>
+
+                  <h3 className="mt-7 text-4xl font-black bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 bg-clip-text text-transparent">
+                    {item.number}
+                  </h3>
+
+                  <h4 className="mt-3 text-xl font-bold text-gray-900">
+                    {item.title}
+                  </h4>
+
+                  <p className="mt-4 text-sm leading-7 text-gray-600">
+                    {item.description}
+                  </p>
                 </div>
-
-                <h3 className="mt-6 text-4xl font-bold text-black">
-                  {item.number}
-                </h3>
-
-                <p className="mt-3 text-gray-600">{item.title}</p>
-              </motion.div>
+              </motion.article>
             );
           })}
         </div>
 
-        {/* Journey */}
+        {/* Journey Section */}
 
-        <div className="mt-20 grid items-center gap-12 lg:grid-cols-2">
-          <div>
-            <span className="rounded-full bg-[#B9FF66] px-5 py-2 text-sm font-semibold text-black">
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 50,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+          }}
+          transition={{
+            duration: 0.7,
+          }}
+          className="mt-24"
+        >
+          <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
+            <span className="inline-flex rounded-full bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 px-5 py-2 text-sm font-semibold text-white shadow-lg">
               Our Journey
             </span>
 
-            <h3 className="mt-6 text-3xl font-bold text-black sm:text-4xl">
-              Every Achievement Started With A Step
+            <h3 className="mt-8 text-4xl font-black leading-tight text-gray-900 sm:text-5xl">
+              Growing Through
+              <span className="block bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 bg-clip-text text-transparent">
+                Innovation & Experience
+              </span>
             </h3>
 
-            <p className="mt-5 text-lg leading-relaxed text-gray-600">
-              From our first project to becoming a trusted technology partner,
-              every milestone helped us improve and grow.
+            <p className="mt-6 text-base leading-8 text-gray-600 sm:text-lg">
+              Every step of our journey reflects our commitment to technology,
+              creativity and delivering meaningful digital solutions.
             </p>
           </div>
 
-          <div className="border-l-2 border-[#B9FF66] pl-8">
-            {journey.map((item) => (
-              <div key={item.year} className="relative pb-10 last:pb-0">
-                <div className="absolute -left-[41px] top-1 h-5 w-5 rounded-full bg-[#B9FF66]"></div>
+          {/* Timeline */}
 
-                <span className="text-sm font-semibold uppercase tracking-widest text-green-600">
-                  {item.year}
-                </span>
+          <div className="relative mx-auto mt-16 max-w-4xl">
+            {/* Line */}
 
-                <h4 className="mt-3 text-xl font-bold text-black">
-                  {item.title}
-                </h4>
+            <div className="absolute left-6 top-0 hidden h-full w-1 bg-gradient-to-b from-cyan-500 via-blue-600 to-purple-600 sm:block" />
 
-                <p className="mt-3 leading-relaxed text-gray-600">
-                  {item.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
+            <div className="flex flex-col gap-8">
+              {journey.map((item, index) => (
+                <motion.div
+                  key={item.year}
+                  initial={{
+                    opacity: 0,
+                    x: 40,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                    x: 0,
+                  }}
+                  viewport={{
+                    once: true,
+                  }}
+                  transition={{
+                    duration: 0.6,
+                    delay: index * 0.12,
+                  }}
+                  className="relative sm:pl-16"
+                >
+                  {/* Timeline Dot */}
 
-        {/* Banner */}
+                  <div className="absolute left-3 top-7 hidden h-7 w-7 items-center justify-center rounded-full bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 shadow-lg sm:flex">
+                    <div className="h-3 w-3 rounded-full bg-white" />
+                  </div>
 
-        <div className="mt-20 rounded-3xl bg-black p-8 sm:p-12">
-          <div className="grid items-center gap-8 lg:grid-cols-[1fr_auto]">
-            <div>
-              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#B9FF66]">
-                <HiOutlineTrophy className="text-3xl text-black" />
-              </div>
+                  <div className="group rounded-[32px] border border-gray-200 bg-white p-7 shadow-sm transition duration-500 hover:-translate-y-2 hover:border-cyan-300 hover:shadow-xl">
+                    <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                      <h4 className="text-2xl font-bold text-gray-900">
+                        {item.title}
+                      </h4>
 
-              <h3 className="mt-6 text-3xl font-bold text-white sm:text-4xl">
-                Award Winning Digital Agency
-              </h3>
+                      <span className="inline-flex w-fit rounded-full bg-gradient-to-r from-cyan-50 to-purple-50 px-5 py-2 text-sm font-bold text-cyan-600">
+                        {item.year}
+                      </span>
+                    </div>
 
-              <p className="mt-4 max-w-3xl text-gray-300">
-                Our success comes from innovation, teamwork and delivering
-                exceptional digital solutions for every client.
-              </p>
+                    <p className="mt-5 text-base leading-8 text-gray-600">
+                      {item.description}
+                    </p>
+
+                    <div className="mt-6 h-1 w-0 rounded-full bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 transition-all duration-500 group-hover:w-full" />
+                  </div>
+                </motion.div>
+              ))}
             </div>
-
-            <div className="rounded-3xl bg-[#B9FF66] px-10 py-8 text-center">
-              <h4 className="text-5xl font-bold text-black">5★</h4>
-
-              <p className="mt-3 font-medium text-black">Client Rating</p>
-            </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

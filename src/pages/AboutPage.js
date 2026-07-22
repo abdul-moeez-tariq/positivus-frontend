@@ -7,7 +7,7 @@ import MissionVision from "../components/about/MissionVision";
 import WhyChooseUs from "../components/about/WhyChooseUs";
 import Achievements from "../components/about/Achievements";
 import TeamPreview from "../components/about/TeamPreview";
-import Technologies from "../components/about/Technologies";
+// import Technologies from "../components/about/Technologies";
 import OurValues from "../components/about/OurValues";
 import Testimonials from "../components/about/Testimonials";
 import AboutCTA from "../components/about/AboutCTA";
@@ -37,7 +37,7 @@ function AboutPage() {
         <TeamPreview />
 
         {/* Technologies */}
-        <Technologies />
+        {/* <Technologies /> */}
 
         {/* Core Values */}
         <OurValues />

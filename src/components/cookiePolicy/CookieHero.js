@@ -1,13 +1,68 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { HiShieldCheck } from "react-icons/hi2";
+
+import { HiCircleStack, HiArrowRight } from "react-icons/hi2";
+
+import { Link } from "react-router-dom";
 
 function CookieHero() {
   return (
     <section className="relative overflow-hidden bg-white px-6 py-20 sm:px-10 lg:px-16">
-      <div className="absolute right-0 top-0 h-72 w-72 rounded-full bg-lime-300 opacity-30 blur-3xl"></div>
+      {/* Background Glow */}
 
-      <div className="relative mx-auto flex max-w-7xl flex-col items-center text-center">
+      <div className="absolute -left-40 top-20 h-96 w-96 rounded-full bg-cyan-400/20 blur-3xl" />
+
+      <div className="absolute -right-40 bottom-0 h-96 w-96 rounded-full bg-purple-500/20 blur-3xl" />
+
+      <div className="relative mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
+        {/* Content */}
+
+        <motion.div
+          initial={{
+            opacity: 0,
+            x: -50,
+          }}
+          animate={{
+            opacity: 1,
+            x: 0,
+          }}
+          transition={{
+            duration: 0.7,
+          }}
+        >
+          <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 px-6 py-2 text-sm font-semibold text-white shadow-lg">
+            <HiCircleStack className="text-lg" />
+            Cookie Policy
+          </span>
+
+          <h1 className="mt-6 text-4xl font-bold leading-tight text-black sm:text-5xl lg:text-6xl">
+            Understanding How
+            <br />
+            We Use Cookies
+          </h1>
+
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-gray-600 sm:text-lg">
+            We use cookies and similar technologies to improve your experience,
+            analyze website performance and provide secure digital services.
+          </p>
+
+          <div className="mt-8 flex flex-wrap gap-4">
+            <Link
+              to="/contact"
+              className="group inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 px-7 py-3 text-sm font-semibold text-white shadow-lg transition duration-300 hover:scale-105"
+            >
+              Contact Us
+              <HiArrowRight className="transition duration-300 group-hover:translate-x-1" />
+            </Link>
+
+            <div className="rounded-full border border-gray-200 px-6 py-3 text-sm font-semibold text-gray-700">
+              Updated July 2026
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Visual Card */}
+
         <motion.div
           initial={{
             opacity: 0,
@@ -18,38 +73,39 @@ function CookieHero() {
             scale: 1,
           }}
           transition={{
-            duration: 0.6,
-          }}
-          className="flex h-20 w-20 items-center justify-center rounded-full bg-black text-lime-300"
-        >
-          <HiShieldCheck className="text-5xl" />
-        </motion.div>
-
-        <motion.h1
-          initial={{
-            opacity: 0,
-            y: 30,
-          }}
-          animate={{
-            opacity: 1,
-            y: 0,
-          }}
-          transition={{
             duration: 0.7,
           }}
-          className="mt-8 max-w-4xl text-4xl font-bold text-black sm:text-5xl lg:text-6xl"
+          className="flex justify-center"
         >
-          Cookie Policy
-        </motion.h1>
+          <div className="relative">
+            {/* Glow Circle */}
 
-        <p className="mt-6 max-w-2xl text-base leading-relaxed text-gray-600 sm:text-lg">
-          Learn how we use cookies and similar technologies to improve your
-          experience and provide better services.
-        </p>
+            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 blur-3xl opacity-40" />
 
-        <div className="mt-8 rounded-full bg-lime-300 px-6 py-3 text-sm font-medium text-black">
-          Last Updated: July 2026
-        </div>
+            <motion.div
+              animate={{
+                y: [0, -15, 0],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+              }}
+              className="relative flex h-80 w-80 items-center justify-center rounded-full bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 shadow-2xl"
+            >
+              <div className="flex h-60 w-60 flex-col items-center justify-center rounded-full bg-white text-center">
+                <div className="flex h-20 w-20 items-center justify-center rounded-3xl bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600">
+                  <HiCircleStack className="text-5xl text-white" />
+                </div>
+
+                <h3 className="mt-5 text-2xl font-bold text-black">
+                  Safe Data
+                </h3>
+
+                <p className="mt-2 text-sm text-gray-500">Secure Experience</p>
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

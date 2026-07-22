@@ -91,7 +91,7 @@ function App() {
         <Route path="/team" element={<TeamPage />} />
         <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
         <Route path="/terms-and-conditions" element={<TermsConditionsPage />} />
-        <Route path="/cookies" element={<CookiePolicyPage />} />
+        <Route path="/cookie-policy" element={<CookiePolicyPage />} />
       </Routes>
 
       <ScrollToTop />

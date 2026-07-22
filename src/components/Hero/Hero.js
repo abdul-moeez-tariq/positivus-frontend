@@ -72,6 +72,7 @@ function Hero() {
             <h1 className="mt-5 text-4xl font-bold leading-tight text-gray-900 sm:text-5xl lg:text-6xl">
               Building Digital Experiences That Drive
               <span className="bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 bg-clip-text text-transparent">
+                {" "}
                 Business Growth
               </span>
             </h1>

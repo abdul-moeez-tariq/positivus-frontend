@@ -1,7 +1,12 @@
-import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
-import { HiStar } from "react-icons/hi2";
+import {
+  HiArrowRight,
+  HiCheckCircle,
+  HiStar,
+  HiSparkles,
+} from "react-icons/hi2";
 
 import { FaQuoteLeft } from "react-icons/fa6";
 
@@ -9,26 +14,26 @@ const testimonials = [
   {
     id: 1,
     name: "Sarah Johnson",
-    position: "CEO, TechNova",
+    role: "CEO, TechNova",
     image: "https://i.pravatar.cc/150?img=32",
     review:
-      "Working with Positivus has been an outstanding experience. Their team delivered a modern, high-performance platform that exceeded all expectations.",
+      "IN2NEXT transformed our digital platform with a modern solution that improved performance, usability and customer experience.",
   },
   {
     id: 2,
     name: "Michael Brown",
-    position: "Founder, StartupX",
+    role: "Founder, StartupX",
     image: "https://i.pravatar.cc/150?img=12",
     review:
-      "Professional, creative and highly responsive. Every milestone was delivered on time with exceptional quality.",
+      "A professional team with excellent communication. They delivered exactly what we needed with outstanding quality.",
   },
   {
     id: 3,
     name: "Emily Davis",
-    position: "Marketing Director",
+    role: "Marketing Director",
     image: "https://i.pravatar.cc/150?img=47",
     review:
-      "Their UI/UX expertise completely transformed our product. Customers loved the experience after launch.",
+      "Their development approach and attention to detail helped us create a product our users truly love.",
   },
 ];
 
@@ -40,12 +45,10 @@ const stats = [
   {
     number: "40+",
     title: "Happy Clients",
-    highlight: true,
   },
   {
     number: "98%",
-    title: "Satisfaction",
-    highlight: true,
+    title: "Client Satisfaction",
   },
   {
     number: "5★",
@@ -53,38 +56,72 @@ const stats = [
   },
 ];
 
+const trustPoints = [
+  "Modern Technology",
+  "Clean Development",
+  "Fast Delivery",
+  "Scalable Solutions",
+  "Dedicated Support",
+  "Premium Quality",
+];
+
 function Testimonials() {
   return (
-    <section className="bg-gray-50 px-6 py-20 sm:px-10 lg:px-16">
-      <div className="mx-auto max-w-7xl">
-        {/* Heading */}
+    <section className="relative overflow-hidden bg-white px-5 py-20 sm:px-6 lg:px-8 lg:py-28">
+      {/* Background Glow */}
 
-        <div className="mx-auto max-w-3xl text-center">
-          <span className="rounded-full bg-[#B9FF66] px-5 py-2 text-sm font-semibold text-black">
-            Testimonials
+      <div className="absolute -left-40 top-20 h-96 w-96 rounded-full bg-cyan-500/10 blur-3xl" />
+
+      <div className="absolute -right-40 bottom-20 h-[28rem] w-[28rem] rounded-full bg-purple-500/10 blur-3xl" />
+
+      <div className="relative mx-auto max-w-7xl">
+        {/* Header */}
+
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 40,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+          }}
+          transition={{
+            duration: 0.7,
+          }}
+          className="mx-auto max-w-3xl text-center"
+        >
+          <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 px-5 py-2 text-sm font-semibold text-white shadow-lg">
+            <HiSparkles className="text-lg" />
+            Client Testimonials
           </span>
 
-          <h2 className="mt-6 text-3xl font-bold text-black sm:text-4xl lg:text-5xl">
-            What Our Clients
-            <br />
-            Say About Us
+          <h2 className="mt-7 text-4xl font-black leading-tight text-gray-900 sm:text-5xl lg:text-6xl">
+            Trusted By Businesses
+            <span className="block bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 bg-clip-text text-transparent">
+              Around The World
+            </span>
           </h2>
 
-          <p className="mt-5 text-lg leading-relaxed text-gray-600">
-            We create long-term partnerships by delivering quality digital
-            experiences and measurable results.
+          <p className="mt-7 text-lg leading-8 text-gray-600">
+            We build long-term partnerships by delivering reliable, scalable and
+            high-quality digital solutions that create measurable business
+            impact.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Cards */}
+        {/* Testimonial Cards */}
 
-        <div className="mt-14 grid gap-6 lg:grid-cols-3">
+        <div className="mt-16 grid gap-8 lg:grid-cols-3">
           {testimonials.map((item, index) => (
-            <motion.div
+            <motion.article
               key={item.id}
               initial={{
                 opacity: 0,
-                y: 40,
+                y: 50,
               }}
               whileInView={{
                 opacity: 1,
@@ -94,111 +131,309 @@ function Testimonials() {
                 once: true,
               }}
               transition={{
-                duration: 0.5,
-                delay: index * 0.1,
+                duration: 0.6,
+                delay: index * 0.12,
               }}
-              className="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl"
+              whileHover={{
+                y: -10,
+              }}
+              className="group relative overflow-hidden rounded-[36px] border border-gray-200 bg-white p-8 shadow-lg transition-all duration-500 hover:border-cyan-300 hover:shadow-2xl"
             >
-              <div className="flex items-center justify-between">
-                <div className="flex gap-1">
-                  {[1, 2, 3, 4, 5].map((star) => (
-                    <HiStar key={star} className="text-xl text-yellow-400" />
-                  ))}
+              {/* Gradient Hover Background */}
+
+              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-blue-500/5 to-purple-500/5 opacity-0 transition duration-500 group-hover:opacity-100" />
+
+              <div className="relative">
+                {/* Top */}
+
+                <div className="flex items-center justify-between">
+                  <div className="flex gap-1">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <HiStar key={star} className="text-xl text-yellow-400" />
+                    ))}
+                  </div>
+
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 text-white shadow-lg transition duration-300 group-hover:rotate-12">
+                    <FaQuoteLeft />
+                  </div>
                 </div>
 
-                <FaQuoteLeft className="text-4xl text-[#B9FF66]" />
-              </div>
+                {/* Review */}
 
-              <p className="mt-6 leading-relaxed text-gray-600">
-                "{item.review}"
-              </p>
+                <p className="mt-8 text-base leading-8 text-gray-600">
+                  "{item.review}"
+                </p>
 
-              <div className="mt-8 flex items-center gap-4">
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  className="h-14 w-14 rounded-full object-cover"
-                />
+                {/* User */}
 
-                <div>
-                  <h4 className="font-bold text-black">{item.name}</h4>
+                <div className="mt-8 flex items-center gap-4">
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="h-16 w-16 rounded-2xl object-cover ring-4 ring-cyan-100"
+                  />
 
-                  <p className="text-sm text-gray-500">{item.position}</p>
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-900">
+                      {item.name}
+                    </h3>
+
+                    <p className="text-sm text-gray-500">{item.role}</p>
+                  </div>
                 </div>
+
+                {/* Bottom Line */}
+
+                <div className="mt-8 h-1 w-0 rounded-full bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 transition-all duration-500 group-hover:w-full" />
               </div>
-            </motion.div>
+            </motion.article>
           ))}
         </div>
 
-        {/* CTA */}
+        {/* Client Success Section */}
 
-        <div className="mt-20 rounded-3xl bg-black p-8 sm:p-12">
-          <div className="grid items-center gap-10 lg:grid-cols-2">
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 60,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+          }}
+          transition={{
+            duration: 0.8,
+          }}
+          className="relative mt-24 overflow-hidden rounded-[40px] bg-slate-950 p-8 sm:p-10 lg:p-14"
+        >
+          {/* Background Glow */}
+
+          <div className="absolute -left-24 top-0 h-80 w-80 rounded-full bg-cyan-500/20 blur-[120px]" />
+
+          <div className="absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-purple-500/20 blur-[120px]" />
+
+          <div className="relative grid items-center gap-12 lg:grid-cols-2">
+            {/* Content */}
+
             <div>
-              <span className="rounded-full bg-[#B9FF66] px-5 py-2 text-sm font-semibold text-black">
+              <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 px-5 py-2 text-sm font-semibold text-white">
+                <HiSparkles />
                 Client Satisfaction
               </span>
 
-              <h3 className="mt-6 text-3xl font-bold text-white sm:text-4xl">
-                Trusted By Businesses Around The World
+              <h3 className="mt-8 text-4xl font-black leading-tight text-white sm:text-5xl">
+                Building Trust Through
+                <span className="block bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+                  Exceptional Results
+                </span>
               </h3>
 
-              <p className="mt-5 leading-relaxed text-gray-300">
-                Our mission is to create premium digital experiences through
-                transparent communication, quality development and long-term
-                support.
+              <p className="mt-6 max-w-xl text-lg leading-8 text-slate-300">
+                Our goal is not just to complete projects. We create long-term
+                partnerships by combining innovative technology, transparent
+                communication and quality engineering.
               </p>
 
-              <blockquote className="mt-8 border-l-4 border-[#B9FF66] pl-5 text-lg italic text-white">
-                "Client success is our greatest achievement."
-              </blockquote>
+              <div className="mt-8 flex items-center gap-4">
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600">
+                  <HiCheckCircle className="text-3xl text-white" />
+                </div>
+
+                <p className="max-w-sm text-lg font-semibold text-white">
+                  Delivering digital experiences that help businesses grow.
+                </p>
+              </div>
             </div>
 
-            <div>
-              <div className="grid grid-cols-2 gap-5">
-                {stats.map((item, index) => (
-                  <motion.div
-                    key={index}
-                    whileHover={{
-                      y: -6,
-                    }}
-                    className={`rounded-3xl p-6 text-center ${
-                      item.highlight ? "bg-[#B9FF66]" : "bg-white"
-                    }`}
-                  >
-                    <h4 className="text-4xl font-bold text-black">
-                      {item.number}
-                    </h4>
+            {/* Stats */}
 
-                    <p className="mt-2 text-sm text-gray-600">{item.title}</p>
-                  </motion.div>
-                ))}
-              </div>
+            <div className="grid grid-cols-2 gap-5">
+              {stats.map((item, index) => (
+                <motion.div
+                  key={index}
+                  whileHover={{
+                    y: -8,
+                    scale: 1.03,
+                  }}
+                  transition={{
+                    duration: 0.3,
+                  }}
+                  className="rounded-[28px] border border-white/10 bg-white/5 p-6 text-center backdrop-blur-xl"
+                >
+                  <h4 className="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-4xl font-black text-transparent sm:text-5xl">
+                    {item.number}
+                  </h4>
 
-              <div className="mt-6 rounded-3xl bg-white p-6">
-                <h4 className="text-xl font-bold text-black">
-                  Why Clients Choose Us
-                </h4>
-
-                <div className="mt-5 flex flex-wrap gap-3">
-                  {[
-                    "Transparent Communication",
-                    "Premium Quality",
-                    "On-Time Delivery",
-                    "Long-Term Support",
-                  ].map((item) => (
-                    <span
-                      key={item}
-                      className="rounded-full bg-gray-100 px-4 py-2 text-sm text-gray-700"
-                    >
-                      ✓ {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
+                  <p className="mt-3 text-sm text-slate-300">{item.title}</p>
+                </motion.div>
+              ))}
             </div>
           </div>
-        </div>
+        </motion.div>
+
+        {/* Why Clients Choose Us */}
+
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 40,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+          }}
+          transition={{
+            duration: 0.7,
+          }}
+          className="mt-12 rounded-[36px] border border-gray-200 bg-gray-50 p-8 sm:p-10"
+        >
+          <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
+            <div className="max-w-xl">
+              <h3 className="text-3xl font-black text-gray-900">
+                Why Clients Choose IN2NEXT
+              </h3>
+
+              <p className="mt-5 text-lg leading-8 text-gray-600">
+                We combine technical expertise, creative thinking and business
+                understanding to build digital products that create real impact.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap gap-3">
+              {trustPoints.map((item, index) => (
+                <motion.span
+                  key={index}
+                  initial={{
+                    opacity: 0,
+                    scale: 0.8,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                    scale: 1,
+                  }}
+                  viewport={{
+                    once: true,
+                  }}
+                  transition={{
+                    delay: index * 0.05,
+                  }}
+                  className="rounded-full border border-cyan-200 bg-white px-5 py-2 text-sm font-semibold text-gray-700 transition-all duration-300 hover:border-blue-500 hover:bg-blue-50"
+                >
+                  ✓ {item}
+                </motion.span>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Final CTA */}
+
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 50,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+          }}
+          transition={{
+            duration: 0.8,
+          }}
+          className="relative mt-24 overflow-hidden rounded-[40px] bg-slate-950 px-6 py-12 sm:px-10 sm:py-16 lg:px-16"
+        >
+          {/* Animated Glow */}
+
+          <motion.div
+            animate={{
+              x: [0, 60, 0],
+              y: [0, -40, 0],
+            }}
+            transition={{
+              duration: 10,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="absolute -left-20 top-0 h-80 w-80 rounded-full bg-cyan-500/30 blur-[120px]"
+          />
+
+          <motion.div
+            animate={{
+              x: [0, -60, 0],
+              y: [0, 50, 0],
+            }}
+            transition={{
+              duration: 12,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="absolute -right-20 bottom-0 h-96 w-96 rounded-full bg-purple-500/30 blur-[120px]"
+          />
+
+          {/* Grid Pattern */}
+
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.12),transparent_40%)]" />
+
+          <div className="relative flex flex-col items-center text-center">
+            {/* Badge */}
+
+            <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 px-5 py-2 text-sm font-semibold text-white backdrop-blur-xl">
+              <span className="h-2 w-2 rounded-full bg-cyan-900 animate-pulse" />
+              Let's Build Something Amazing
+            </span>
+
+            {/* Heading */}
+
+            <h3 className="mt-8 max-w-4xl text-3xl font-black leading-loose text-white sm:text-4xl lg:text-5xl">
+              Ready To Transform Your
+              <span className="block pb-2 bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+                Digital Vision Into Reality?
+              </span>
+            </h3>
+
+            {/* Description */}
+
+            <p className="mt-6 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
+              Partner with IN2NEXT to build scalable software, modern
+              applications and future-ready digital experiences that help your
+              business grow faster.
+            </p>
+
+            {/* Button */}
+
+            <Link
+              to="/contact"
+              className="group mt-8 inline-flex items-center gap-3 rounded-2xl bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 px-8 py-4 font-semibold text-white shadow-[0_20px_60px_rgba(59,130,246,0.45)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_30px_80px_rgba(59,130,246,0.6)]"
+            >
+              Start Your Project
+              <HiArrowRight className="transition-transform duration-300 group-hover:translate-x-2" />
+            </Link>
+
+            {/* Bottom Trust */}
+
+            <div className="mt-10 flex flex-wrap justify-center gap-3">
+              {["Fast Delivery", "Scalable Solutions", "Expert Team"].map(
+                (item) => (
+                  <span
+                    key={item}
+                    className="rounded-full border border-white/20 bg-white/5 px-4 py-2 text-sm text-slate-200 backdrop-blur-xl"
+                  >
+                    ✓ {item}
+                  </span>
+                ),
+              )}
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
