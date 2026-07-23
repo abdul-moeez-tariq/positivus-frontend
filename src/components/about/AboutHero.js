@@ -1,3 +1,4 @@
+import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
@@ -14,11 +15,9 @@ const fadeUp = {
     opacity: 0,
     y: 30,
   },
-
   visible: {
     opacity: 1,
     y: 0,
-
     transition: {
       duration: 0.6,
       ease: "easeOut",
@@ -36,29 +35,45 @@ const stagger = {
   },
 };
 
+const features = [
+  {
+    icon: HiCodeBracket,
+    title: "Modern Full Stack Development",
+  },
+  {
+    icon: HiCpuChip,
+    title: "AI Powered Digital Solutions",
+  },
+  {
+    icon: HiCheckCircle,
+    title: "Scalable Cloud Architecture",
+  },
+];
+
+const technologies = [
+  "React.js",
+  "Next.js",
+  "Node.js",
+  "MongoDB",
+  "Firebase",
+  "AI",
+];
+
 function AboutHero() {
   return (
     <section className="relative overflow-hidden bg-white py-20 sm:py-24">
-      {/* Background Glow */}
+      {/* Grid Background */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:70px_70px] opacity-40" />
 
-      <div className="absolute left-0 top-0 h-72 w-72 rounded-full bg-cyan-400/20 blur-3xl" />
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white/60 via-transparent to-white" />
 
-      <div className="absolute right-0 top-20 h-72 w-72 rounded-full bg-purple-500/20 blur-3xl" />
+      {/* Glow */}
+      <div className="absolute -left-40 top-20 h-96 w-96 rounded-full bg-cyan-400/20 blur-3xl" />
 
-      <motion.div
-        animate={{
-          x: [0, 40, 0],
-          y: [0, -30, 0],
-        }}
-        transition={{
-          duration: 12,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-        className="absolute left-10 top-32 h-40 w-40 rounded-full bg-blue-500/10 blur-3xl"
-      />
+      <div className="absolute -right-40 top-40 h-96 w-96 rounded-full bg-purple-500/20 blur-3xl" />
 
-      <div className="relative mx-auto max-w-7xl px-6">
+      <div className="relative mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
         <div className="grid items-center gap-14 lg:grid-cols-2">
           {/* Left Content */}
 
@@ -71,7 +86,6 @@ function AboutHero() {
             }}
           >
             {/* Badge */}
-
             <motion.div variants={fadeUp}>
               <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 px-6 py-2 text-sm font-semibold text-white shadow-lg">
                 <HiSparkles className="text-lg" />
@@ -83,7 +97,7 @@ function AboutHero() {
 
             <motion.h1
               variants={fadeUp}
-              className="mt-8 text-4xl font-black leading-loose text-gray-900 sm:text-5xl lg:text-6xl"
+              className="mt-8 text-4xl font-black leading-snug text-gray-900 sm:text-5xl lg:text-6xl"
             >
               Building
               <span className="block bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 bg-clip-text pb-2 text-transparent">
@@ -100,42 +114,30 @@ function AboutHero() {
             >
               IN2NEXT Solutions helps startups and businesses transform ideas
               into scalable web platforms, AI-powered applications, mobile
-              solutions, and cloud-based systems using modern technologies and
-              industry best practices.
+              solutions and cloud-based systems using modern technologies.
             </motion.p>
 
             {/* Features */}
 
             <motion.div variants={fadeUp} className="mt-8 grid gap-4">
-              {[
-                {
-                  icon: <HiCodeBracket />,
-                  title: "Modern Full Stack Development",
-                },
+              {features.map((item, index) => {
+                const Icon = item.icon;
 
-                {
-                  icon: <HiCpuChip />,
-                  title: "AI Powered Digital Solutions",
-                },
+                return (
+                  <div
+                    key={index}
+                    className="group flex items-center gap-4 rounded-2xl border border-gray-200 bg-white p-4 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg"
+                  >
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 text-white">
+                      <Icon className="text-xl" />
+                    </div>
 
-                {
-                  icon: <HiCheckCircle />,
-                  title: "Scalable Cloud Architecture",
-                },
-              ].map((item, index) => (
-                <div
-                  key={index}
-                  className="group flex items-center gap-4 rounded-2xl border border-gray-200 bg-white p-4 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg"
-                >
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 text-xl text-white">
-                    {item.icon}
+                    <h3 className="text-sm font-semibold text-gray-800 sm:text-base">
+                      {item.title}
+                    </h3>
                   </div>
-
-                  <h3 className="text-sm font-semibold text-gray-800 sm:text-base">
-                    {item.title}
-                  </h3>
-                </div>
-              ))}
+                );
+              })}
             </motion.div>
 
             {/* Buttons */}
@@ -177,24 +179,26 @@ function AboutHero() {
             }}
             className="relative flex justify-center"
           >
-            {/* Main Dashboard */}
+            {/* Dashboard */}
 
             <motion.div
               whileHover={{
-                y: -6,
+                y: -8,
               }}
               transition={{
                 duration: 0.3,
               }}
-              className="relative w-full max-w-lg rounded-3xl border border-gray-200 bg-white shadow-xl"
+              className="relative w-full max-w-xl rounded-3xl border border-gray-200 bg-white shadow-xl"
             >
-              {/* Dashboard Header */}
+              {/* Header */}
 
-              <div className="flex items-center justify-between border-b border-gray-100 px-6 py-5">
+              <div className="flex items-center justify-between border-b border-gray-100 px-5 py-5 sm:px-6">
                 <div>
-                  <p className="text-sm text-gray-500">Company Overview</p>
+                  <p className="text-xs text-gray-500 sm:text-sm">
+                    Company Overview
+                  </p>
 
-                  <h3 className="mt-1 text-xl font-bold text-gray-900">
+                  <h3 className="mt-1 text-lg font-bold text-gray-900 sm:text-xl">
                     IN2NEXT Dashboard
                   </h3>
                 </div>
@@ -208,14 +212,12 @@ function AboutHero() {
                 </div>
               </div>
 
-              {/* Dashboard Body */}
-
-              <div className="p-6">
-                {/* Progress Card */}
+              <div className="space-y-5 p-5 sm:p-6">
+                {/* Progress */}
 
                 <div className="rounded-3xl bg-gray-50 p-5">
                   <div className="flex items-center justify-between">
-                    <h4 className="font-semibold text-gray-900">
+                    <h4 className="text-sm font-semibold text-gray-900 sm:text-base">
                       Project Delivery
                     </h4>
 
@@ -243,7 +245,7 @@ function AboutHero() {
 
                 {/* Stats */}
 
-                <div className="mt-5 grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-4">
                   <div className="rounded-3xl border border-gray-200 p-5">
                     <h3 className="bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 bg-clip-text text-3xl font-black text-transparent">
                       120+
@@ -265,7 +267,7 @@ function AboutHero() {
 
                 {/* Technology Stack */}
 
-                <div className="mt-5 rounded-3xl border border-gray-200 p-5">
+                <div className="rounded-3xl border border-gray-200 p-5">
                   <div className="flex items-center justify-between">
                     <h4 className="font-bold text-gray-900">
                       Technology Stack
@@ -277,20 +279,13 @@ function AboutHero() {
                   </div>
 
                   <div className="mt-4 flex flex-wrap gap-3">
-                    {[
-                      "React.js",
-                      "Next.js",
-                      "Node.js",
-                      "MongoDB",
-                      "Firebase",
-                      "AI",
-                    ].map((tech) => (
+                    {technologies.map((tech) => (
                       <motion.span
                         key={tech}
                         whileHover={{
                           y: -3,
                         }}
-                        className="rounded-xl border border-gray-200 bg-gray-50 px-3 py-2 text-sm font-semibold text-gray-700"
+                        className="rounded-xl border border-gray-200 bg-gray-50 px-3 py-2 text-xs font-semibold text-gray-700 sm:text-sm"
                       >
                         {tech}
                       </motion.span>
@@ -300,7 +295,7 @@ function AboutHero() {
 
                 {/* Active Projects */}
 
-                <div className="mt-5 rounded-3xl bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 p-6 text-white">
+                <div className="rounded-3xl bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 p-6 text-white">
                   <div className="flex items-center justify-between">
                     <div>
                       <p className="text-sm text-white/80">Active Projects</p>
@@ -317,21 +312,21 @@ function AboutHero() {
                         repeat: Infinity,
                         ease: "linear",
                       }}
-                      className="flex h-16 w-16 items-center justify-center rounded-full border border-white/40"
+                      className="flex h-14 w-14 items-center justify-center rounded-full border border-white/40 sm:h-16 sm:w-16"
                     >
-                      <HiSparkles className="text-3xl" />
+                      <HiSparkles className="text-2xl sm:text-3xl" />
                     </motion.div>
                   </div>
 
                   <p className="mt-4 text-sm leading-relaxed text-white/90">
-                    Building scalable web applications, AI-powered systems,
-                    mobile apps, cloud platforms and enterprise solutions.
+                    Building scalable applications, AI systems, mobile apps,
+                    cloud platforms and enterprise solutions.
                   </p>
                 </div>
               </div>
             </motion.div>
 
-            {/* Floating Badge Desktop Only */}
+            {/* Floating AI Badge */}
 
             <motion.div
               animate={{
@@ -355,6 +350,8 @@ function AboutHero() {
                 </div>
               </div>
             </motion.div>
+
+            {/* Satisfaction Badge */}
 
             <motion.div
               animate={{

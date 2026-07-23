@@ -5,8 +5,25 @@ import {
   HiUsers,
   HiGlobeAlt,
   HiStar,
-  HiSparkles,
+  HiRocketLaunch,
 } from "react-icons/hi2";
+
+const fadeUp = {
+  hidden: {
+    opacity: 0,
+    y: 40,
+  },
+
+  visible: {
+    opacity: 1,
+    y: 0,
+
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
+};
 
 const achievements = [
   {
@@ -29,7 +46,8 @@ const achievements = [
     icon: HiGlobeAlt,
     number: "15+",
     title: "Countries Served",
-    description: "Helping global businesses build modern digital experiences.",
+    description:
+      "Helping global businesses build modern digital experiences worldwide.",
   },
 
   {
@@ -73,7 +91,18 @@ const journey = [
 
 function Achievements() {
   return (
-    <section className="relative overflow-hidden bg-white px-5 py-20 sm:px-6 lg:px-8 lg:py-28">
+    <section className="relative overflow-hidden bg-white px-5 py-10 sm:px-6">
+      {/* Background Grid */}
+
+      <div
+        className="absolute inset-0 opacity-40"
+        style={{
+          backgroundImage:
+            "linear-gradient(#e5e7eb 1px, transparent 1px), linear-gradient(90deg, #e5e7eb 1px, transparent 1px)",
+          backgroundSize: "40px 40px",
+        }}
+      />
+
       {/* Background Glow */}
 
       <motion.div
@@ -103,27 +132,19 @@ function Achievements() {
       />
 
       <div className="relative mx-auto max-w-7xl">
-        {/* Heading */}
+        {/* Header */}
 
         <motion.div
-          initial={{
-            opacity: 0,
-            y: 40,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
           viewport={{
             once: true,
-          }}
-          transition={{
-            duration: 0.7,
           }}
           className="mx-auto flex max-w-3xl flex-col items-center text-center"
         >
           <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 px-5 py-2 text-sm font-semibold text-white shadow-lg">
-            <HiSparkles className="text-lg" />
+            <HiTrophy className="text-lg" />
             Our Achievements
           </span>
 
@@ -134,7 +155,7 @@ function Achievements() {
             </span>
           </h2>
 
-          <p className="mt-6 text-base leading-8 text-gray-600 sm:text-lg">
+          <p className="mt-6 max-w-2xl text-base leading-8 text-gray-600 sm:text-lg">
             Our achievements represent years of dedication, innovation and
             commitment towards building reliable digital solutions for our
             clients.
@@ -166,30 +187,90 @@ function Achievements() {
                   delay: index * 0.1,
                 }}
                 whileHover={{
-                  y: -10,
+                  y: -8,
                 }}
-                className="group relative overflow-hidden rounded-[32px] border border-gray-200 bg-white p-7 shadow-sm transition duration-500 hover:border-cyan-300 hover:shadow-2xl"
+                className="
+          group relative flex h-full flex-col
+          overflow-hidden rounded-3xl
+          border border-gray-200
+          bg-white p-7
+          shadow-sm transition duration-500
+          hover:border-cyan-300
+          hover:shadow-xl
+        "
               >
                 {/* Hover Glow */}
 
-                <div className="absolute -right-16 -top-16 h-40 w-40 rounded-full bg-cyan-400/20 blur-3xl opacity-0 transition duration-500 group-hover:opacity-100" />
+                <div
+                  className="
+            absolute -right-20 -top-20
+            h-40 w-40 rounded-full
+            bg-cyan-400/20
+            opacity-0 blur-3xl
+            transition duration-500
+            group-hover:opacity-100
+          "
+                />
 
-                <div className="relative">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 text-white shadow-lg">
+                <div className="relative flex flex-1 flex-col">
+                  {/* Icon */}
+
+                  <div
+                    className="
+              flex h-16 w-16
+              items-center justify-center
+              rounded-2xl
+              bg-gradient-to-r
+              from-cyan-500 via-blue-600 to-purple-600
+              text-white shadow-lg
+            "
+                  >
                     <Icon className="text-3xl" />
                   </div>
 
-                  <h3 className="mt-7 text-4xl font-black bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 bg-clip-text text-transparent">
+                  {/* Number */}
+
+                  <h3
+                    className="
+              mt-7
+              bg-gradient-to-r
+              from-cyan-500 via-blue-600 to-purple-600
+              bg-clip-text
+              text-4xl font-black
+              text-transparent
+            "
+                  >
                     {item.number}
                   </h3>
+
+                  {/* Title */}
 
                   <h4 className="mt-3 text-xl font-bold text-gray-900">
                     {item.title}
                   </h4>
 
+                  {/* Description */}
+
                   <p className="mt-4 text-sm leading-7 text-gray-600">
                     {item.description}
                   </p>
+
+                  {/* Hover Line */}
+
+                  <div className="mt-auto pt-8">
+                    <div
+                      className="
+                h-1
+                w-0
+                rounded-full
+                bg-gradient-to-r
+                from-cyan-500 via-blue-600 to-purple-600
+                transition-all
+                duration-500
+                group-hover:w-full
+              "
+                    />
+                  </div>
                 </div>
               </motion.article>
             );
@@ -199,24 +280,19 @@ function Achievements() {
         {/* Journey Section */}
 
         <motion.div
-          initial={{
-            opacity: 0,
-            y: 50,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
           viewport={{
             once: true,
           }}
-          transition={{
-            duration: 0.7,
-          }}
-          className="mt-24"
+          className="mt-28"
         >
+          {/* Journey Header */}
+
           <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
-            <span className="inline-flex rounded-full bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 px-5 py-2 text-sm font-semibold text-white shadow-lg">
+            <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 px-5 py-2 text-sm font-semibold text-white shadow-lg">
+              <HiRocketLaunch className="text-lg" />
               Our Journey
             </span>
 
@@ -227,26 +303,28 @@ function Achievements() {
               </span>
             </h3>
 
-            <p className="mt-6 text-base leading-8 text-gray-600 sm:text-lg">
-              Every step of our journey reflects our commitment to technology,
-              creativity and delivering meaningful digital solutions.
+            <p className="mt-6 max-w-2xl text-base leading-8 text-gray-600 sm:text-lg">
+              Every milestone represents our dedication towards innovation,
+              technology and creating impactful digital solutions.
             </p>
           </div>
 
-          {/* Timeline */}
+          {/* Timeline Wrapper */}
 
-          <div className="relative mx-auto mt-16 max-w-4xl">
-            {/* Line */}
+          <div className="relative mx-auto mt-20 max-w-5xl">
+            {/* Timeline Line */}
 
-            <div className="absolute left-6 top-0 hidden h-full w-1 bg-gradient-to-b from-cyan-500 via-blue-600 to-purple-600 sm:block" />
+            <div className="absolute left-6 top-0 hidden h-full w-1 overflow-hidden rounded-full bg-gray-100 sm:block">
+              <div className="h-full w-full bg-gradient-to-b from-cyan-500 via-blue-600 to-purple-600" />
+            </div>
 
-            <div className="flex flex-col gap-8">
+            <div className="flex flex-col gap-10">
               {journey.map((item, index) => (
                 <motion.div
                   key={item.year}
                   initial={{
                     opacity: 0,
-                    x: 40,
+                    x: 50,
                   }}
                   whileInView={{
                     opacity: 1,
@@ -257,33 +335,92 @@ function Achievements() {
                   }}
                   transition={{
                     duration: 0.6,
-                    delay: index * 0.12,
+                    delay: index * 0.15,
                   }}
-                  className="relative sm:pl-16"
+                  className="relative sm:pl-20"
                 >
-                  {/* Timeline Dot */}
+                  {/* Timeline Point */}
 
-                  <div className="absolute left-3 top-7 hidden h-7 w-7 items-center justify-center rounded-full bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 shadow-lg sm:flex">
-                    <div className="h-3 w-3 rounded-full bg-white" />
-                  </div>
-
-                  <div className="group rounded-[32px] border border-gray-200 bg-white p-7 shadow-sm transition duration-500 hover:-translate-y-2 hover:border-cyan-300 hover:shadow-xl">
-                    <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                      <h4 className="text-2xl font-bold text-gray-900">
-                        {item.title}
-                      </h4>
-
-                      <span className="inline-flex w-fit rounded-full bg-gradient-to-r from-cyan-50 to-purple-50 px-5 py-2 text-sm font-bold text-cyan-600">
-                        {item.year}
-                      </span>
+                  <div className="absolute left-0 top-10 hidden h-14 w-14 items-center justify-center rounded-full bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 shadow-xl sm:flex">
+                    <div className="flex h-7 w-7 items-center justify-center rounded-full bg-white">
+                      <div className="h-3 w-3 rounded-full bg-gradient-to-r from-cyan-500 to-purple-600" />
                     </div>
-
-                    <p className="mt-5 text-base leading-8 text-gray-600">
-                      {item.description}
-                    </p>
-
-                    <div className="mt-6 h-1 w-0 rounded-full bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 transition-all duration-500 group-hover:w-full" />
                   </div>
+
+                  {/* Card */}
+
+                  <article
+                    className="
+            group
+            relative
+            overflow-hidden
+            rounded-[32px]
+            border
+            border-gray-200
+            bg-white
+            p-7
+            shadow-sm
+            transition
+            duration-500
+            hover:-translate-y-2
+            hover:border-cyan-300
+            hover:shadow-2xl
+            sm:p-8
+            "
+                  >
+                    {/* Card Glow */}
+
+                    <div className="absolute -right-20 -top-20 h-48 w-48 rounded-full bg-cyan-400/20 opacity-0 blur-3xl transition duration-500 group-hover:opacity-100" />
+
+                    <div className="relative">
+                      {/* Header */}
+
+                      <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+                        <div>
+                          <span className="text-sm font-bold uppercase tracking-widest text-cyan-600">
+                            Milestone {index + 1}
+                          </span>
+
+                          <h4 className="mt-2 text-2xl font-black text-gray-900">
+                            {item.title}
+                          </h4>
+                        </div>
+
+                        {/* Year */}
+
+                        <div className="flex h-14 w-fit items-center rounded-2xl bg-gradient-to-r from-cyan-50 via-blue-50 to-purple-50 px-6">
+                          <span className="bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 bg-clip-text text-xl font-black text-transparent">
+                            {item.year}
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Description */}
+
+                      <p className="mt-6 max-w-3xl text-sm leading-8 text-gray-600 sm:text-base">
+                        {item.description}
+                      </p>
+
+                      {/* Animated Bottom Line */}
+
+                      <div className="mt-8 h-1.5 w-full overflow-hidden rounded-full bg-gray-100">
+                        <div
+                          className="
+                  h-full
+                  w-16
+                  rounded-full
+                  bg-gradient-to-r
+                  from-cyan-500
+                  via-blue-600
+                  to-purple-600
+                  transition-all
+                  duration-700
+                  group-hover:w-full
+                  "
+                        />
+                      </div>
+                    </div>
+                  </article>
                 </motion.div>
               ))}
             </div>
