@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
-import { HiEnvelope, HiSparkles, HiArrowRight } from "react-icons/hi2";
+import { HiEnvelope, HiArrowRight, HiUserGroup } from "react-icons/hi2";
 
 import { FaLinkedinIn } from "react-icons/fa6";
 
@@ -92,20 +92,20 @@ function TeamPreview() {
           className="mx-auto flex max-w-3xl flex-col items-center text-center"
         >
           <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 px-5 py-2 text-sm font-semibold text-white shadow-lg">
-            <HiSparkles className="text-lg" />
+            <HiUserGroup className="text-lg" />
             Meet Our Experts
           </span>
 
-          <h2 className="mt-8 text-4xl font-black leading-tight text-slate-900 sm:text-5xl lg:text-6xl">
+          <h2 className="mt-8 text-4xl font-black leading-tight text-gray-900 sm:text-5xl lg:text-6xl">
             The Minds Behind
             <span className="block bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 bg-clip-text text-transparent">
-              IN2NEXT
+              IN2NEXT Solutions
             </span>
           </h2>
 
-          <p className="mt-6 text-base leading-8 text-slate-600 sm:text-lg">
+          <p className="mt-6 max-w-2xl text-base leading-8 text-gray-600 sm:text-lg">
             A team of passionate engineers, designers and innovators creating
-            scalable digital solutions for modern businesses.
+            scalable digital solutions that help businesses grow.
           </p>
         </motion.div>
 
@@ -131,56 +131,64 @@ function TeamPreview() {
                 delay: index * 0.12,
               }}
               whileHover={{
-                y: -12,
+                y: -10,
               }}
-              className="group relative overflow-hidden rounded-[36px] border border-slate-200 bg-slate-900 shadow-xl transition-all duration-500 hover:shadow-2xl"
+              className="group relative overflow-hidden rounded-[32px] bg-white shadow-lg"
             >
-              {/* Image */}
+              {/* Card Border Glow */}
 
-              <div className="relative h-[420px] overflow-hidden">
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  loading="lazy"
-                  className="h-full w-full object-cover transition duration-700 group-hover:scale-110"
-                />
+              <div className="absolute inset-0 rounded-[32px] bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 opacity-0 transition duration-500 group-hover:opacity-100" />
 
-                {/* Overlay */}
+              <div className="relative m-[1px] overflow-hidden rounded-[31px] bg-slate-950">
+                {/* Image */}
 
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
+                <div className="relative h-[430px] overflow-hidden">
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition duration-700 group-hover:scale-110"
+                  />
 
-                {/* Experience Badge */}
+                  {/* Image Overlay */}
 
-                <div className="absolute right-5 top-5 rounded-full border border-white/20 bg-white/20 px-4 py-2 text-sm font-semibold text-white backdrop-blur-xl">
-                  {member.experience}
-                </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
 
-                {/* Bottom Content */}
+                  {/* Experience Badge */}
 
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <div className="rounded-3xl border border-white/20 bg-white/10 p-5 backdrop-blur-xl">
-                    <h3 className="text-2xl font-bold text-white">
-                      {member.name}
-                    </h3>
+                  <div className="absolute right-5 top-5 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-white backdrop-blur-xl">
+                    {member.experience}
+                  </div>
 
-                    <p className="mt-2 text-sm text-white/80">{member.role}</p>
+                  {/* Bottom Content */}
 
-                    {/* Social */}
+                  <div className="absolute bottom-0 left-0 right-0 p-5">
+                    <div className="rounded-3xl border border-white/20 bg-white/10 p-5 backdrop-blur-xl">
+                      <h3 className="text-xl font-bold text-white sm:text-2xl">
+                        {member.name}
+                      </h3>
 
-                    <div className="mt-5 flex gap-3">
-                      <a
-                        href="/"
-                        className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 text-white transition duration-300 hover:scale-110"
-                      >
-                        <FaLinkedinIn />
-                      </a>
+                      <p className="mt-2 text-sm text-white/70">
+                        {member.role}
+                      </p>
 
-                      <a
-                        href="/"
-                        className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 text-white transition duration-300 hover:scale-110"
-                      >
-                        <HiEnvelope />
-                      </a>
+                      {/* Social */}
+
+                      <div className="mt-5 flex gap-3">
+                        <a
+                          href="/"
+                          className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 text-white transition duration-300 hover:scale-110"
+                        >
+                          <FaLinkedinIn className="text-sm" />
+                        </a>
+
+                        <a
+                          href="/"
+                          className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 text-white transition duration-300 hover:scale-110"
+                        >
+                          <HiEnvelope className="text-lg" />
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -189,7 +197,7 @@ function TeamPreview() {
           ))}
         </div>
 
-        {/* CTA Section */}
+        {/* CTA */}
 
         <motion.div
           initial={{
@@ -206,23 +214,24 @@ function TeamPreview() {
           transition={{
             duration: 0.8,
           }}
-          className="relative mt-24 overflow-hidden rounded-[40px] bg-slate-950 px-8 py-10 sm:px-10 lg:px-14 lg:py-14"
+          className="relative mt-24 overflow-hidden rounded-[40px] bg-slate-950 px-7 py-12 sm:px-10 lg:px-14"
         >
-          {/* CTA Glow */}
+          {/* Glow */}
 
-          <div className="absolute -left-24 top-0 h-80 w-80 rounded-full bg-cyan-500/20 blur-[120px]" />
+          <div className="absolute -left-20 top-0 h-72 w-72 rounded-full bg-cyan-500/20 blur-3xl" />
 
-          <div className="absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-purple-500/20 blur-[120px]" />
+          <div className="absolute -right-20 bottom-0 h-72 w-72 rounded-full bg-purple-500/20 blur-3xl" />
 
-          <div className="relative z-10 flex flex-col items-start justify-between gap-10 lg:flex-row lg:items-center">
+          <div className="relative flex flex-col items-start justify-between gap-10 lg:flex-row lg:items-center">
             <div className="max-w-2xl">
-              <span className="inline-flex rounded-full bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 px-5 py-2 text-sm font-semibold text-white shadow-lg">
+              <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 px-5 py-2 text-sm font-semibold text-white shadow-lg">
+                <HiUserGroup className="text-lg" />
                 Join Our Team
               </span>
 
               <h3 className="mt-7 text-3xl font-black leading-tight text-white sm:text-4xl lg:text-5xl">
                 Great Products Are Built
-                <span className="block bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+                <span className="block bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
                   By Great People
                 </span>
               </h3>
@@ -236,10 +245,12 @@ function TeamPreview() {
 
             <Link
               to="/team"
-              className="group inline-flex items-center gap-3 rounded-2xl bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 px-8 py-4 font-semibold text-white shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
+              className="group inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 px-8 py-4 text-sm font-semibold text-white shadow-xl transition duration-300 hover:-translate-y-1 hover:shadow-2xl"
             >
               Meet Full Team
-              <HiArrowRight className="transition-transform duration-300 group-hover:translate-x-2" />
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/20 transition duration-300 group-hover:translate-x-1">
+                <HiArrowRight />
+              </span>
             </Link>
           </div>
         </motion.div>

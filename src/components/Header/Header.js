@@ -52,8 +52,8 @@ export default function Header() {
 
     {
       id: 5,
-      title: "Blog",
-      href: "/blog",
+      title: "Contact",
+      href: "/contact",
     },
   ];
 

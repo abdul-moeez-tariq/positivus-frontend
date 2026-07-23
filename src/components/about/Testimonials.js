@@ -3,9 +3,10 @@ import { Link } from "react-router-dom";
 
 import {
   HiArrowRight,
-  HiCheckCircle,
+  HiChatBubbleLeftRight,
   HiStar,
   HiSparkles,
+  HiCheckCircle,
 } from "react-icons/hi2";
 
 import { FaQuoteLeft } from "react-icons/fa6";
@@ -19,6 +20,7 @@ const testimonials = [
     review:
       "IN2NEXT transformed our digital platform with a modern solution that improved performance, usability and customer experience.",
   },
+
   {
     id: 2,
     name: "Michael Brown",
@@ -27,6 +29,7 @@ const testimonials = [
     review:
       "A professional team with excellent communication. They delivered exactly what we needed with outstanding quality.",
   },
+
   {
     id: 3,
     name: "Emily Davis",
@@ -42,14 +45,17 @@ const stats = [
     number: "150+",
     title: "Projects Delivered",
   },
+
   {
     number: "40+",
     title: "Happy Clients",
   },
+
   {
     number: "98%",
     title: "Client Satisfaction",
   },
+
   {
     number: "5★",
     title: "Average Rating",
@@ -70,12 +76,34 @@ function Testimonials() {
     <section className="relative overflow-hidden bg-white px-5 py-20 sm:px-6 lg:px-8 lg:py-28">
       {/* Background Glow */}
 
-      <div className="absolute -left-40 top-20 h-96 w-96 rounded-full bg-cyan-500/10 blur-3xl" />
+      <motion.div
+        animate={{
+          x: [0, 70, 0],
+          y: [0, -40, 0],
+        }}
+        transition={{
+          duration: 14,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute -left-40 top-20 h-96 w-96 rounded-full bg-cyan-500/10 blur-3xl"
+      />
 
-      <div className="absolute -right-40 bottom-20 h-[28rem] w-[28rem] rounded-full bg-purple-500/10 blur-3xl" />
+      <motion.div
+        animate={{
+          x: [0, -70, 0],
+          y: [0, 50, 0],
+        }}
+        transition={{
+          duration: 16,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute -right-40 bottom-20 h-96 w-96 rounded-full bg-purple-500/10 blur-3xl"
+      />
 
       <div className="relative mx-auto max-w-7xl">
-        {/* Header */}
+        {/* Heading */}
 
         <motion.div
           initial={{
@@ -92,21 +120,21 @@ function Testimonials() {
           transition={{
             duration: 0.7,
           }}
-          className="mx-auto max-w-3xl text-center"
+          className="mx-auto flex max-w-3xl flex-col items-center text-center"
         >
           <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 px-5 py-2 text-sm font-semibold text-white shadow-lg">
-            <HiSparkles className="text-lg" />
+            <HiChatBubbleLeftRight className="text-lg" />
             Client Testimonials
           </span>
 
-          <h2 className="mt-7 text-4xl font-black leading-tight text-gray-900 sm:text-5xl lg:text-6xl">
+          <h2 className="mt-8 text-4xl font-black leading-tight text-gray-900 sm:text-5xl lg:text-6xl">
             Trusted By Businesses
             <span className="block bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 bg-clip-text text-transparent">
               Around The World
             </span>
           </h2>
 
-          <p className="mt-7 text-lg leading-8 text-gray-600">
+          <p className="mt-6 max-w-2xl text-base leading-8 text-gray-600 sm:text-lg">
             We build long-term partnerships by delivering reliable, scalable and
             high-quality digital solutions that create measurable business
             impact.
@@ -137,13 +165,13 @@ function Testimonials() {
               whileHover={{
                 y: -10,
               }}
-              className="group relative overflow-hidden rounded-[36px] border border-gray-200 bg-white p-8 shadow-lg transition-all duration-500 hover:border-cyan-300 hover:shadow-2xl"
+              className="group relative flex h-full overflow-hidden rounded-[36px] border border-gray-200 bg-white p-8 shadow-sm transition duration-500 hover:border-cyan-300 hover:shadow-2xl"
             >
-              {/* Gradient Hover Background */}
+              {/* Hover Glow */}
 
-              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-blue-500/5 to-purple-500/5 opacity-0 transition duration-500 group-hover:opacity-100" />
+              <div className="absolute -right-20 -top-20 h-48 w-48 rounded-full bg-gradient-to-br from-cyan-500/20 to-purple-500/20 opacity-0 blur-3xl transition duration-500 group-hover:opacity-100" />
 
-              <div className="relative">
+              <div className="relative flex flex-1 flex-col">
                 {/* Top */}
 
                 <div className="flex items-center justify-between">
@@ -153,14 +181,14 @@ function Testimonials() {
                     ))}
                   </div>
 
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 text-white shadow-lg transition duration-300 group-hover:rotate-12">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 text-white shadow-lg transition duration-500 group-hover:rotate-12">
                     <FaQuoteLeft />
                   </div>
                 </div>
 
                 {/* Review */}
 
-                <p className="mt-8 text-base leading-8 text-gray-600">
+                <p className="mt-8 flex-1 text-base leading-8 text-gray-600">
                   "{item.review}"
                 </p>
 
@@ -170,6 +198,7 @@ function Testimonials() {
                   <img
                     src={item.image}
                     alt={item.name}
+                    loading="lazy"
                     className="h-16 w-16 rounded-2xl object-cover ring-4 ring-cyan-100"
                   />
 
@@ -182,9 +211,11 @@ function Testimonials() {
                   </div>
                 </div>
 
-                {/* Bottom Line */}
+                {/* Hover Line */}
 
-                <div className="mt-8 h-1 w-0 rounded-full bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 transition-all duration-500 group-hover:w-full" />
+                <div className="mt-8 h-1 w-full overflow-hidden rounded-full bg-gray-100">
+                  <div className="h-full w-0 rounded-full bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 transition-all duration-500 group-hover:w-full" />
+                </div>
               </div>
             </motion.article>
           ))}
@@ -209,18 +240,40 @@ function Testimonials() {
           }}
           className="relative mt-24 overflow-hidden rounded-[40px] bg-slate-950 p-8 sm:p-10 lg:p-14"
         >
-          {/* Background Glow */}
+          {/* Glow */}
 
-          <div className="absolute -left-24 top-0 h-80 w-80 rounded-full bg-cyan-500/20 blur-[120px]" />
+          <motion.div
+            animate={{
+              x: [0, 50, 0],
+              y: [0, -30, 0],
+            }}
+            transition={{
+              duration: 12,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="absolute -left-24 top-0 h-80 w-80 rounded-full bg-cyan-500/20 blur-3xl"
+          />
 
-          <div className="absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-purple-500/20 blur-[120px]" />
+          <motion.div
+            animate={{
+              x: [0, -50, 0],
+              y: [0, 40, 0],
+            }}
+            transition={{
+              duration: 14,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-purple-500/20 blur-3xl"
+          />
 
           <div className="relative grid items-center gap-12 lg:grid-cols-2">
             {/* Content */}
 
             <div>
-              <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 px-5 py-2 text-sm font-semibold text-white">
-                <HiSparkles />
+              <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 px-5 py-2 text-sm font-semibold text-white shadow-lg">
+                <HiCheckCircle className="text-lg" />
                 Client Satisfaction
               </span>
 
@@ -231,24 +284,24 @@ function Testimonials() {
                 </span>
               </h3>
 
-              <p className="mt-6 max-w-xl text-lg leading-8 text-slate-300">
-                Our goal is not just to complete projects. We create long-term
-                partnerships by combining innovative technology, transparent
-                communication and quality engineering.
+              <p className="mt-6 max-w-xl text-base leading-8 text-slate-300 sm:text-lg">
+                We don't just deliver projects. We build long-term partnerships
+                through transparent communication, modern technology and
+                reliable engineering practices.
               </p>
 
               <div className="mt-8 flex items-center gap-4">
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600">
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 shadow-lg">
                   <HiCheckCircle className="text-3xl text-white" />
                 </div>
 
                 <p className="max-w-sm text-lg font-semibold text-white">
-                  Delivering digital experiences that help businesses grow.
+                  Creating digital products that deliver real business impact.
                 </p>
               </div>
             </div>
 
-            {/* Stats */}
+            {/* Stats Cards */}
 
             <div className="grid grid-cols-2 gap-5">
               {stats.map((item, index) => (
@@ -256,13 +309,14 @@ function Testimonials() {
                   key={index}
                   whileHover={{
                     y: -8,
-                    scale: 1.03,
                   }}
                   transition={{
                     duration: 0.3,
                   }}
-                  className="rounded-[28px] border border-white/10 bg-white/5 p-6 text-center backdrop-blur-xl"
+                  className="group relative overflow-hidden rounded-[28px] border border-white/10 bg-white/5 p-6 text-center backdrop-blur-xl"
                 >
+                  <div className="absolute inset-x-0 bottom-0 h-1 w-0 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 transition-all duration-500 group-hover:w-full" />
+
                   <h4 className="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-4xl font-black text-transparent sm:text-5xl">
                     {item.number}
                   </h4>
@@ -295,20 +349,28 @@ function Testimonials() {
         >
           <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
             <div className="max-w-xl">
-              <h3 className="text-3xl font-black text-gray-900">
-                Why Clients Choose IN2NEXT
+              <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 px-5 py-2 text-sm font-semibold text-white shadow-lg">
+                <HiStar className="text-lg" />
+                Why Choose Us
+              </span>
+
+              <h3 className="mt-6 text-3xl font-black text-gray-900 sm:text-4xl">
+                Trusted Partner For
+                <span className="block pb-2 bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 bg-clip-text text-transparent">
+                  Digital Growth
+                </span>
               </h3>
 
-              <p className="mt-5 text-lg leading-8 text-gray-600">
-                We combine technical expertise, creative thinking and business
-                understanding to build digital products that create real impact.
+              <p className="mt-5 text-base leading-8 text-gray-600 sm:text-lg">
+                We combine technology expertise, creative thinking and business
+                understanding to deliver solutions that create measurable value.
               </p>
             </div>
 
             <div className="flex flex-wrap gap-3">
               {trustPoints.map((item, index) => (
                 <motion.span
-                  key={index}
+                  key={item}
                   initial={{
                     opacity: 0,
                     scale: 0.8,
@@ -323,7 +385,7 @@ function Testimonials() {
                   transition={{
                     delay: index * 0.05,
                   }}
-                  className="rounded-full border border-cyan-200 bg-white px-5 py-2 text-sm font-semibold text-gray-700 transition-all duration-300 hover:border-blue-500 hover:bg-blue-50"
+                  className="rounded-full border border-cyan-200 bg-white px-5 py-2 text-sm font-semibold text-gray-700 shadow-sm transition duration-300 hover:border-blue-500 hover:bg-blue-50"
                 >
                   ✓ {item}
                 </motion.span>
@@ -359,11 +421,11 @@ function Testimonials() {
               y: [0, -40, 0],
             }}
             transition={{
-              duration: 10,
+              duration: 12,
               repeat: Infinity,
               ease: "easeInOut",
             }}
-            className="absolute -left-20 top-0 h-80 w-80 rounded-full bg-cyan-500/30 blur-[120px]"
+            className="absolute -left-24 top-0 h-96 w-96 rounded-full bg-cyan-500/30 blur-3xl"
           />
 
           <motion.div
@@ -372,39 +434,39 @@ function Testimonials() {
               y: [0, 50, 0],
             }}
             transition={{
-              duration: 12,
+              duration: 14,
               repeat: Infinity,
               ease: "easeInOut",
             }}
-            className="absolute -right-20 bottom-0 h-96 w-96 rounded-full bg-purple-500/30 blur-[120px]"
+            className="absolute -right-24 bottom-0 h-96 w-96 rounded-full bg-purple-500/30 blur-3xl"
           />
 
-          {/* Grid Pattern */}
+          {/* Pattern */}
 
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.12),transparent_40%)]" />
 
           <div className="relative flex flex-col items-center text-center">
             {/* Badge */}
 
-            <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 px-5 py-2 text-sm font-semibold text-white backdrop-blur-xl">
-              <span className="h-2 w-2 rounded-full bg-cyan-900 animate-pulse" />
-              Let's Build Something Amazing
+            <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 px-5 py-2 text-sm font-semibold text-white shadow-lg">
+              <HiSparkles className="text-lg" />
+              Let's Create Something Amazing
             </span>
 
             {/* Heading */}
 
-            <h3 className="mt-8 max-w-4xl text-3xl font-black leading-loose text-white sm:text-4xl lg:text-5xl">
-              Ready To Transform Your
+            <h3 className="mt-8 max-w-4xl text-3xl font-black leading-tight text-white sm:text-4xl lg:text-5xl">
+              Ready To Build Your
               <span className="block pb-2 bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
-                Digital Vision Into Reality?
+                Next Digital Experience?
               </span>
             </h3>
 
             {/* Description */}
 
             <p className="mt-6 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
-              Partner with IN2NEXT to build scalable software, modern
-              applications and future-ready digital experiences that help your
+              Partner with IN2NEXT to create scalable software, modern
+              applications and future-ready digital solutions that help your
               business grow faster.
             </p>
 
@@ -412,20 +474,22 @@ function Testimonials() {
 
             <Link
               to="/contact"
-              className="group mt-8 inline-flex items-center gap-3 rounded-2xl bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 px-8 py-4 font-semibold text-white shadow-[0_20px_60px_rgba(59,130,246,0.45)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_30px_80px_rgba(59,130,246,0.6)]"
+              className="group mt-8 inline-flex items-center gap-3 rounded-2xl bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 px-8 py-4 font-semibold text-white shadow-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
             >
               Start Your Project
-              <HiArrowRight className="transition-transform duration-300 group-hover:translate-x-2" />
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/20">
+                <HiArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
+              </span>
             </Link>
 
-            {/* Bottom Trust */}
+            {/* Trust Badges */}
 
             <div className="mt-10 flex flex-wrap justify-center gap-3">
-              {["Fast Delivery", "Scalable Solutions", "Expert Team"].map(
+              {["Fast Delivery", "Expert Team", "Scalable Solutions"].map(
                 (item) => (
                   <span
                     key={item}
-                    className="rounded-full border border-white/20 bg-white/5 px-4 py-2 text-sm text-slate-200 backdrop-blur-xl"
+                    className="rounded-full border border-white/20 bg-white/5 px-5 py-2 text-sm font-medium text-slate-200 backdrop-blur-xl"
                   >
                     ✓ {item}
                   </span>
